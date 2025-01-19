@@ -15,11 +15,11 @@ public class Account {
     private long id;
     private User user;
     private String name;
-    BigDecimal balance;
+    private BigDecimal balance = BigDecimal.valueOf(0.0);
     /**
      * Date when the user created the current account
      * */
-    LocalDate accountCreatedDate;
+    private LocalDate accountCreatedDate;
 
     @Override
     public boolean equals(Object o) {
