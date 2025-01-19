@@ -44,7 +44,7 @@ public class User {
         if (isValidFormat(date)) {
             return LocalDate.parse(date, DateTimeFormatter.ISO_LOCAL_DATE);
         }
-        return LocalDate.MIN;
+        return LocalDate.of(0, 1, 1);
     }
 
     private static boolean isValidFormat(String date) {
