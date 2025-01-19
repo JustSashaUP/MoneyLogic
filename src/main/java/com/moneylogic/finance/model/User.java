@@ -3,6 +3,8 @@ package com.moneylogic.finance.model;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Objects;
 
 @Setter
@@ -17,6 +19,47 @@ public class User {
      * Date when the user registered
      * */
     private LocalDate userRegistrationDate;
+
+    private User() {}
+
+    public static User createUser(String username, String email, String password, String userRegistrationDate) {
+        User user = new User();
+        user.username = username;
+        user.email = email;
+        user.password = password;
+        user.userRegistrationDate = parseToLocalDate(userRegistrationDate);
+        return user;
+    }
+
+    public static User createUserWithCurrentDate(String username, String email, String password) {
+        User user = new User();
+        user.username = username;
+        user.email = email;
+        user.password = password;
+        user.userRegistrationDate = LocalDate.now();
+        return user;
+    }
+
+    private static LocalDate parseToLocalDate(String date) {
+        if (isValidFormat(date)) {
+            return LocalDate.parse(date, DateTimeFormatter.ISO_LOCAL_DATE);
+        }
+        return LocalDate.MIN;
+    }
+
+    private static boolean isValidFormat(String date) {
+        if (date == null || date.isEmpty()) {
+            return false;
+        }
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
+        try {
+            LocalDate.parse(date, formatter);
+        } catch (DateTimeParseException e) {
+            e.getMessage(); //TODO Fix me
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public boolean equals(Object obj) {
