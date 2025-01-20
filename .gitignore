@@ -32,7 +32,10 @@ build/
 ### VS Code ###
 .vscode/
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 3cd0c59 (Add a custom DB login)
+=======
+>>>>>>> 3cd0c592453c905932e6787751f56bdc69eb0e6e
 /src/main/resources/developer.properties
