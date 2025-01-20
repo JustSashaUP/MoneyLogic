@@ -9,5 +9,4 @@ class MoneyLogicApplicationTests {
     //@Test
     void contextLoads() {
     }
-
 }
