@@ -1,5 +1,6 @@
 package com.moneylogic.finance.model;
 
+import com.moneylogic.finance.util.CommonUtils;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -26,7 +27,7 @@ public class User {
         user.username = username;
         user.email = email;
         user.password = password;
-        user.userRegistrationDate = parseToLocalDate(userRegistrationDate);
+        user.userRegistrationDate = CommonUtils.parseToLocalDate(userRegistrationDate);
         return user;
     }
 
@@ -37,27 +38,6 @@ public class User {
         user.password = password;
         user.userRegistrationDate = LocalDate.now();
         return user;
-    }
-
-    private static LocalDate parseToLocalDate(String date) {
-        if (isValidFormat(date)) {
-            return LocalDate.parse(date, DateTimeFormatter.ISO_LOCAL_DATE);
-        }
-        return LocalDate.of(0, 1, 1);
-    }
-
-    private static boolean isValidFormat(String date) {
-        if (date == null || date.isEmpty()) {
-            return false;
-        }
-        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
-        try {
-            LocalDate.parse(date, formatter);
-        } catch (DateTimeParseException e) {
-            e.getMessage(); //TODO Fix me
-            return false;
-        }
-        return true;
     }
 
     @Override
