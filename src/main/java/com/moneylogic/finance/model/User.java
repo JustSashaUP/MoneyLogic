@@ -9,7 +9,6 @@ import java.util.Objects;
 
 @Setter
 @Getter
-@ToString
 public class User {
     private long id;
     private String username;
@@ -79,5 +78,16 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(id, username, email, userRegistrationDate);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", userRegistrationDate=" + userRegistrationDate +
+                '}';
     }
 }

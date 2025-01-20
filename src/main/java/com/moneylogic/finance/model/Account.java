@@ -6,6 +6,7 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 @Setter
@@ -20,6 +21,13 @@ public class Account {
      * Date when the user created the current account
      * */
     private LocalDate accountCreatedDate;
+    /**
+     * Transactions related to the user's account
+     * */
+    private List<Transaction> transactions;
+    //TODO is Account have diff catalogs or User?
+
+    public Account() {}
 
     @Override
     public boolean equals(Object o) {
