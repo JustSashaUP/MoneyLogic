@@ -1,26 +1,37 @@
 package com.moneylogic.finance.model;
 
 import com.moneylogic.finance.util.CommonUtils;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.Objects;
 
 @Setter
 @Getter
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "password")
     private String password;
+
     /**
      * Date when the user registered
      * */
+    @Column(name = "created_date")
     private LocalDate userRegistrationDate;
 
-    private User() {}
+    protected User() {}
 
     public static User createUser(String username, String email, String password, String userRegistrationDate) {
         User user = new User();
