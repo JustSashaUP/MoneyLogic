@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-
+import  com.moneylogic.finance.model.User;
 @Setter
 @Getter
 @Entity
@@ -20,7 +20,7 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-
+    @ManyToOne()
     private User user;
 
     @Column(name = "name")

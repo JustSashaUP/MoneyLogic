@@ -7,22 +7,21 @@ import lombok.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@Setter
-@Getter
 @Entity
-@Table(name = "users")
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "user")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "username")
+    @Column(name = "username", nullable = false)
     private String username;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
 
     /**
@@ -31,7 +30,29 @@ public class User {
     @Column(name = "created_date")
     private LocalDate userRegistrationDate;
 
-    protected User() {}
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+    public String getEmail(){
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setUsername(String username){
+        this.username =username;
+    }
+
+    public void setPassword(String password){
+        this.password = password;
+    }
 
     public static User createUser(String username, String email, String password, String userRegistrationDate) {
         User user = new User();
