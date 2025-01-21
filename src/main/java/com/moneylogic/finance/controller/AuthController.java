@@ -19,14 +19,14 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
     // Страница логина
     @GetMapping("/login")
-    public String loginPage(Model model, @RequestParam(value = "error", required = false) String error) {
+    public String loginPage(Model model, @RequestParam(value = "logout", required = false) String logout, @RequestParam(value = "error", required = false) String error) {
         if (error != null) {
             model.addAttribute("error", "Invalid credentials");
+        }
+        if (logout != null) {
+            model.addAttribute("message", "You have successfully logged out.");
         }
         return "login";
     }
@@ -40,29 +40,9 @@ public class AuthController {
     // Обработка формы регистрации
     @PostMapping("/register")
     public String register(@RequestParam String username, @RequestParam String email, @RequestParam String password, Model model) {
-        if (userService.findByUsername(username).isPresent()) {
-            model.addAttribute("error", "Username already exists");
-            return "register";
-        }
-
-        if (userService.findByEmail(email).isPresent()) {
-            model.addAttribute("error", "Email already registered");
-            return "register";
-        }
-
-        User user = User.createUserWithCurrentDate(username, email, passwordEncoder.encode(password));
+        User user = User.createUserWithCurrentDate(username, email, password);
         userService.saveUser(user);
         return "redirect:/login?register=true";
-    }
-
-    // Метод для выхода (если нужно вручную управлять выходом)
-    @GetMapping("/logout")
-    public String logout() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null) {
-            SecurityContextHolder.clearContext();
-        }
-        return "redirect:/login?logout=true";
     }
 
     // Проверка, вошел ли пользователь в систему

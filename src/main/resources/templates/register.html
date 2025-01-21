@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <h1>Register</h1>
-    <form action="#" th:action="@{/register}" method="POST">
+    <form th:action="@{/register}" method="POST">
         <div class="form-group">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" th:value="${username}" required placeholder="Enter your username">
@@ -28,6 +28,7 @@
     <div th:if="${param.error}">
         <p class="text-danger">Username or email already exists.</p>
     </div>
+    <div th:if="${errorMessage}" style="color: red;" th:text="${errorMessage}"></div>
 
     <div th:if="${param.register}">
         <p class="text-success">Registration successful! Please log in.</p>

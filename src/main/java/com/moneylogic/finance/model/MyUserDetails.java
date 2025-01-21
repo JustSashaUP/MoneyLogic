@@ -10,38 +10,29 @@ import java.util.List;
 
 public class MyUserDetails implements UserDetails {
     private static final long serialVersionUID = 1L;
-    private final String username;
-    private final String password;
-    private final List<GrantedAuthority> authorities;
+    private User user;
 
     public MyUserDetails(User user){
-        this.username = user.getUsername();
-        this.password = user.getPassword();
-        this.authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
+        this.user = user;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         // Возвращаем пустой список, если не нужно делить пользователей по ролям
-        return authorities;
-    }
-
-    @Override
-    public String getUsername() {
-        return username;  // Или user.getUsername() в зависимости от требований
+        return Collections.singletonList(new SimpleGrantedAuthority(user.getUsername()));
     }
 
     @Override
     public String getPassword() {
-        return password;
-    }
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
+        return user.getPassword();
     }
 
     @Override
-    public boolean isAccountNonLocked() {
+    public String getUsername() {
+        return user.getUsername();
+    }
+    @Override
+    public boolean isAccountNonExpired() {
         return true;
     }
 

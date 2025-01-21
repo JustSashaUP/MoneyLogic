@@ -22,7 +22,6 @@ import org.springframework.web.util.WebUtils;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private final MyUserDetailsService userDetailsService;
     private final CustomOAuth2UserService customOAuth2UserService;
     @Bean
     public UserDetailsService userDetailsService() {
@@ -30,8 +29,7 @@ public class SecurityConfig {
     }
 
 
-    public SecurityConfig(@Lazy MyUserDetailsService userDetailsService, CustomOAuth2UserService customOAuth2UserService) {
-        this.userDetailsService = userDetailsService;
+    public SecurityConfig( CustomOAuth2UserService customOAuth2UserService) {
         this.customOAuth2UserService = customOAuth2UserService;
     }
 
@@ -55,7 +53,8 @@ public class SecurityConfig {
                             String redirectUrl = (String) request.getSession().getAttribute(WebUtils.FORWARD_REQUEST_URI_ATTRIBUTE);
                             response.sendRedirect(redirectUrl != null ? redirectUrl : "/profile");}))
                 .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
+                        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                        .maximumSessions(1))
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login?logout")
@@ -68,13 +67,14 @@ public class SecurityConfig {
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(userDetailsService);
-        provider.setPasswordEncoder(passwordEncoder());
+        provider.setUserDetailsService(userDetailsService());
+        provider.setPasswordEncoder(passwordEncoder()); // Убедитесь, что здесь используется BCryptPasswordEncoder
         return provider;
     }
 
+
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder() {};
+        return new BCryptPasswordEncoder();
     }
 }
