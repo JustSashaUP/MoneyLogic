@@ -1,0 +1,60 @@
+.modal-registration {
+  padding: 10px;
+  min-width: 540px;
+  min-height: 524px;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--color-background-modal);
+
+  &__close-button-wrapper {
+    display: flex;
+    justify-content: end;
+  }
+
+  &__form {
+    padding-inline: 70px;
+    padding-bottom: 30px;
+
+    &-title {
+      color: var(--color-light-alt);
+      font-size: 28px;
+      line-height: 100%;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__field {
+    margin-bottom: 24px;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+  }
+
+  &__google-button {
+    @include reset-button;
+    @include hover {
+      scale: 1.05;
+    }
+
+    height: var(--input-height);
+    border-radius: var(--border-radius-input);
+    background-color: #26272B;
+    color: #A0A0AB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 8px;
+
+    &::before {
+      content: '';
+      background: url(../../images/icons/google-icon.svg);
+
+      @include square(20px);
+
+    }
+  }
+}
+

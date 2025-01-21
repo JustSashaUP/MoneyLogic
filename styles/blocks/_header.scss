@@ -1,0 +1,45 @@
+.header {
+  padding-block: 30px;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 50px;
+  }
+
+  &__list {
+    display: flex;
+    column-gap: 100px;
+  }
+
+  &__item {
+    align-self: center;
+  }
+
+  &__link {
+    font-size: 25px;
+    position: relative;
+
+    &:hover {
+      color: var(--color-accent);
+
+      &::before {
+        width: 100%;
+      }
+    }
+
+    &::before {
+      content: '';
+
+      width: 0%;
+      height: 2px;
+      background-color: currentColor;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      translate: -50%;
+      transition-duration: var(--transition-duration);
+    }
+  }
+}

@@ -1,0 +1,58 @@
+.hero {
+  padding-block: 100px;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 50px;
+  }
+
+  &__body {
+    max-width: 695px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+  &__title {
+    @include fluid-text(100, 70);
+
+    margin-bottom: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    user-select: none;
+
+    span {
+      color: var(--color-light-purple);
+      display: block;
+      margin-bottom: -30%;
+    }
+    
+  }
+
+  &__description {
+    margin-bottom: 38px;
+    text-align: end;
+  }
+
+  &__image {
+    width: 50%;
+    user-select: none;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 100px;
+  }
+
+}
