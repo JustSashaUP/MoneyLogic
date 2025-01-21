@@ -1,57 +1,71 @@
 package com.moneylogic.finance.model;
 
 import com.moneylogic.finance.util.CommonUtils;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Setter
 @Getter
+@Entity
+@Table(name = "accounts")
 public class Account {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+
     private User user;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "balance")
     private BigDecimal balance = BigDecimal.valueOf(0.0);
     /**
      * Date when the user created the current account
      * */
+    @Column(name = "created_date")
     private LocalDate accountCreatedDate;
     /**
      * Transactions related to the user's account
      * */
-    private List<Transaction> transactions;
+    @Transient
+    private Optional<List<Transaction>> transactions;
     /**
-     * Catalog templates related to the user's account
+     * Category templates related to the user's account
      * */
-    private List<Catalog> catalogs;
+    @Transient
+    private Optional<List<Category>> categories;
 
-    private Account() {}
+    protected Account() {}
 
     public static Account createAccount(User user, String name, BigDecimal balance,
-                                        List<Transaction> transactions, List<Catalog> catalogs, String accountCreatedDate) {
+                                        List<Transaction> transactions, List<Category> categories, String accountCreatedDate) {
         Account account = new Account();
         account.user = user;
         account.name = name;
         account.balance = balance;
-        account.transactions = transactions;
-        account.catalogs = catalogs;
+        account.transactions = Optional.ofNullable(transactions);
+        account.categories = Optional.ofNullable(categories);
         account.accountCreatedDate = CommonUtils.parseToLocalDate(accountCreatedDate);
         return account;
     }
 
     public static Account createAccountWithCurrentDate(User user, String name, BigDecimal balance,
-                                                       List<Transaction> transactions, List<Catalog> catalogs) {
+                                                       List<Transaction> transactions, List<Category> categories) {
         Account account = new Account();
         account.user = user;
         account.name = name;
         account.balance = balance;
-        account.transactions = transactions;
-        account.catalogs = catalogs;
+        account.transactions = Optional.ofNullable(transactions);
+        account.categories = Optional.ofNullable(categories);
         account.accountCreatedDate = LocalDate.now();
         return account;
     }
@@ -82,7 +96,7 @@ public class Account {
                 ", balance=" + balance +
                 ", accountCreatedDate=" + accountCreatedDate +
                 ", transactions=" + transactions +
-                ", catalogs=" + catalogs +
+                ", categories=" + categories +
                 '}';
     }
 }
