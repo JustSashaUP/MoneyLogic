@@ -1,23 +1,43 @@
 package com.moneylogic.finance.model;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
+@Getter
+@Setter
+@Entity
+@Table(name = "transactions")
 public class Transaction {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @ManyToOne
     private User user;
+
+    @ManyToOne
     private Account account;
-    private Category catalog;
+
+    @OneToOne
+    private Category category;
+
+    @Column(name = "amount")
     private BigDecimal amount;
+
+    @Column(name = "description")
     private String description;
 
-    private Transaction() {}
+    protected Transaction() {}
 
-    public static Transaction createTransaction(User user, Account account, Category catalog, BigDecimal amount, String description) {
+    public static Transaction createTransaction(User user, Account account, Category category, BigDecimal amount, String description) {
         Transaction transaction = new Transaction();
         transaction.user = user;
         transaction.account = account;
-        transaction.catalog = catalog;
+        transaction.category = category;
         transaction.amount = amount;
         transaction.description = description;
         return transaction;
@@ -27,7 +47,7 @@ public class Transaction {
         Transaction transaction = new Transaction();
         transaction.user = user;
         transaction.account = account;
-        transaction.catalog = null;
+        transaction.category = null;
         transaction.amount = amount;
         transaction.description = description;
         return transaction;
@@ -41,13 +61,13 @@ public class Transaction {
         return id == that.id &&
                 Objects.equals(user, that.user) &&
                 Objects.equals(account, that.account) &&
-                Objects.equals(catalog, that.catalog) &&
+                Objects.equals(category, that.category) &&
                 Objects.equals(amount, that.amount) &&
                 Objects.equals(description, that.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, account, catalog, amount, description);
+        return Objects.hash(id, user, account, category, amount, description);
     }
 }
