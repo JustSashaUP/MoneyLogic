@@ -1,0 +1,35 @@
+.theme-toggler {
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  height: 45px;
+  background: url(../../images/ui-components/dark-theme.svg) center / cover no-repeat;
+  appearance: none;
+  cursor: pointer;
+  transition: 0.5s;
+  position: relative;
+  outline: none;
+
+  &::before {
+    content: '';
+
+    @include square(45px);
+
+    position: absolute;
+    border-radius: 50%;
+    background: url(../../images/ui-components/moon.svg) center / cover no-repeat;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+  }
+
+  &:checked {
+    background: url(../../images/ui-components/light-theme.svg) center / cover no-repeat;
+  }
+
+  &:checked::before {
+    left: auto;
+    right: 0;
+    background: url(../../images/ui-components/sun.svg) center / cover no-repeat;
+  }
+}

@@ -6,6 +6,10 @@
   border-radius: var(--border-radius);
   background-color: var(--color-background-modal);
 
+  @include tablet {
+    min-width: 300px;
+  }
+
   &__close-button-wrapper {
     display: flex;
     justify-content: end;
@@ -14,6 +18,14 @@
   &__form {
     padding-inline: 70px;
     padding-bottom: 30px;
+
+    @include tablet {
+      padding-inline: 40px;
+    }
+
+    @include mobile {
+      padding-inline: 15px;
+    }
 
     &-title {
       color: var(--color-light-alt);
