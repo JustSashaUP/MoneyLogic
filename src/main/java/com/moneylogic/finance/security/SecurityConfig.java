@@ -1,6 +1,7 @@
 package com.moneylogic.finance.security;
 
 
+import com.moneylogic.finance.repository.UserRepository;
 import com.moneylogic.finance.service.CustomOAuth2UserService;
 import com.moneylogic.finance.service.MyUserDetailsService;
 import org.springframework.context.annotation.Bean;
@@ -28,8 +29,7 @@ public class SecurityConfig {
         return new MyUserDetailsService();
     }
 
-
-    public SecurityConfig( CustomOAuth2UserService customOAuth2UserService) {
+    public SecurityConfig( @Lazy CustomOAuth2UserService customOAuth2UserService) {
         this.customOAuth2UserService = customOAuth2UserService;
     }
 
@@ -48,10 +48,11 @@ public class SecurityConfig {
                         .loginPage("/login")
                         .defaultSuccessUrl("/profile", true)
                         .userInfoEndpoint(userInfo -> userInfo
-                                .userService(customOAuth2UserService))
+                                .userService(customOAuth2UserService)) // Это связывает ваш сервис
                         .successHandler((request, response, authentication) -> {
                             String redirectUrl = (String) request.getSession().getAttribute(WebUtils.FORWARD_REQUEST_URI_ATTRIBUTE);
-                            response.sendRedirect(redirectUrl != null ? redirectUrl : "/profile");}))
+                            response.sendRedirect(redirectUrl != null ? redirectUrl : "/profile");
+                        }))
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                         .maximumSessions(1))

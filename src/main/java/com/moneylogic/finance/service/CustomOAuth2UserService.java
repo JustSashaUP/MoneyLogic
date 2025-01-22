@@ -2,9 +2,12 @@ package com.moneylogic.finance.service;
 
 import com.moneylogic.finance.model.User;
 import com.moneylogic.finance.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -13,47 +16,36 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.Optional;
+
+import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
+import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 
 @Service
-public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
+public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
     private final UserRepository userRepository;
 
+    @Autowired
     public CustomOAuth2UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @Override
-    public OAuth2User loadUser(OAuth2UserRequest userRequest) {
-        // Загружаем информацию о пользователе из провайдера
-        OAuth2User oAuth2User = new DefaultOAuth2User(
-                Collections.singleton(new SimpleGrantedAuthority("ROLE_USER")), // Задаем роль по умолчанию
-                userRequest.getAdditionalParameters(),
-                "email" // Основной идентификатор
-        );
+    public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
+        OAuth2User oauth2User = super.loadUser(userRequest);
+        // Получение информации о пользователе из Google
+        String email = oauth2User.getAttribute("email");
+        String name = oauth2User.getAttribute("name");
+        // Проверка, есть ли пользователь в базе данных
+        Optional<User> userOptional = userRepository.findByEmail(email);
+        if (userOptional.isEmpty()) {
+            // Сохраняем нового пользователя в базу данных
+            User newUser = User.createUserWithCurrentDate(name, email, "");
+            userRepository.save(newUser);
+        }
 
-        Map<String, Object> attributes = oAuth2User.getAttributes();
-        String email = (String) attributes.get("email");
-
-        // Проверяем, существует ли пользователь
-        User user = userRepository.findByEmail(email)
-                .orElseGet(() -> createUserFromOAuth2(attributes));
-
-        return new DefaultOAuth2User(
-                oAuth2User.getAuthorities(),
-                oAuth2User.getAttributes(),
-                "email"
-        );
-    }
-
-    private User createUserFromOAuth2(Map<String, Object> attributes) {
-        String email = (String) attributes.get("email");
-        String name = (String) attributes.get("name");
-
-        User newUser = new User();
-        newUser.setEmail(email);
-        newUser.setUsername(name != null ? name : email);
-        newUser.setPassword("oauth2-user-password");
-        return userRepository.save(newUser);
+        return oauth2User;
     }
 }
