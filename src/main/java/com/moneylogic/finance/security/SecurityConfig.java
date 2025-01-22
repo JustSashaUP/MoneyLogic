@@ -1,7 +1,6 @@
 package com.moneylogic.finance.security;
 
 
-import com.moneylogic.finance.repository.UserRepository;
 import com.moneylogic.finance.service.CustomOAuth2UserService;
 import com.moneylogic.finance.service.MyUserDetailsService;
 import org.springframework.context.annotation.Bean;

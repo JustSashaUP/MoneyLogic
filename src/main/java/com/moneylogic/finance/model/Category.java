@@ -26,7 +26,7 @@ public class Category {
 
     protected Category() {}
 
-    private static Category createCategory(User user, String name, TransactionType transactionType) {
+    public static Category createCategory(User user, String name, TransactionType transactionType) {
         Category category = new Category();
         category.user = user;
         category.name = name;

@@ -2,14 +2,13 @@ package com.moneylogic.finance.service;
 
 import com.moneylogic.finance.model.MyUserDetails;
 import com.moneylogic.finance.model.User;
-import com.moneylogic.finance.repository.UserRepository;
+import com.moneylogic.finance.repository.User.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Base64;
 import java.util.Optional;
 
 @Service

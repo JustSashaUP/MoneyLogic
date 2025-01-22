@@ -24,7 +24,9 @@ public class Transaction {
     @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
     private Account account;
 
-    @OneToOne(mappedBy = "category_id")
+    //@OneToOne(mappedBy = "category_id")
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
 
     @Column(name = "amount")

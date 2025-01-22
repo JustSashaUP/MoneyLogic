@@ -1,13 +1,11 @@
 package com.moneylogic.finance.controller;
 
 import com.moneylogic.finance.model.User;
-import com.moneylogic.finance.service.MyUserDetailsService;
-import com.moneylogic.finance.service.UserService;
+import com.moneylogic.finance.service.UserServiceImpl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

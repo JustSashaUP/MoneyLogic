@@ -1,4 +1,4 @@
-package com.moneylogic.finance.repository;
+package com.moneylogic.finance.repository.User;
 
 import com.moneylogic.finance.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;

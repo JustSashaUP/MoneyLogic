@@ -1,13 +1,14 @@
-package com.moneylogic.finance.service;
+package com.moneylogic.finance.service.UserServiceImpl;
 
 
+import com.moneylogic.finance.model.Category;
 import com.moneylogic.finance.model.User;
-import com.moneylogic.finance.repository.UserRepository;
+import com.moneylogic.finance.repository.User.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -33,6 +34,21 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
 
         return "User " + user.getUsername() + " successfully registered.";
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public User getUserById(Long id) {
+        return userRepository.getById(id);
+    }
+
+    @Override
+    public void deleteUserById(Long id) {
+        userRepository.deleteById(id);
     }
 
 }
