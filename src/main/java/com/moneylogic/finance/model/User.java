@@ -8,8 +8,6 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "user")
 public class User {
     @Id
@@ -30,30 +28,6 @@ public class User {
     @Column(name = "created_date")
     private LocalDate userRegistrationDate;
 
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-    public String getEmail(){
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setUsername(String username){
-        this.username =username;
-    }
-
-    public void setPassword(String password){
-        this.password = password;
-    }
-
     public static User createUser(String username, String email, String password, String userRegistrationDate) {
         User user = new User();
         user.username = username;
@@ -70,6 +44,30 @@ public class User {
         user.password = password;
         user.userRegistrationDate = LocalDate.now();
         return user;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setUsername(String username){
+        this.username =username;
+    }
+
+    public void setPassword(String password){
+        this.password = password;
     }
 
     @Override
