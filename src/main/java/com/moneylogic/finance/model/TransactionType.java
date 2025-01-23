@@ -1,7 +1,10 @@
 package com.moneylogic.finance.model;
 
+import lombok.Getter;
+
 import java.math.BigDecimal;
 
+@Getter
 public enum TransactionType {
     INCOME("income") {
         public BigDecimal apply(BigDecimal amount, BigDecimal total) {
@@ -10,7 +13,7 @@ public enum TransactionType {
     },
     EXPENSE("expense") {
         public BigDecimal apply(BigDecimal amount, BigDecimal total) {
-            return total.subtract(amount); //TODO What if total < amount (total == 0)
+            return total.subtract(amount);
         }
     };
 
