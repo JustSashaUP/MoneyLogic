@@ -10,8 +10,11 @@ import java.util.Objects;
 @Entity
 @Table(name = "user")
 public class User {
+    /*@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)*/
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private long id;
 
     @Column(name = "username", nullable = false)
@@ -28,6 +31,8 @@ public class User {
      * */
     @Column(name = "created_date")
     private LocalDate userRegistrationDate;
+
+
 
     public static User createUser(String username, String email, String password, String userRegistrationDate) {
         User user = new User();

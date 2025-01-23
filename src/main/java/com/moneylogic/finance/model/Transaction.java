@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
@@ -13,23 +14,34 @@ import java.util.Objects;
 @Table(name = "transactions")
 public class Transaction {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    public Transaction(User user, Account account, Category category, BigDecimal amount, TransactionType transactionType, String description, LocalDate transactionDate) {
+        this.user = user;
+        this.account = account;
+        this.category = category;
+        this.amount = amount;
+        this.transactionType = transactionType;
+        this.description = description;
+        this.transactionDate = transactionDate;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
+    //@JoinColumn(name = "account_id",nullable = false)
     private Account account;
 
     //@OneToOne(mappedBy = "category_id")
-    @ManyToOne
-    @JoinColumn(name = "category_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false)
     private Category category;
 
-    @Column(name = "amount")
+    @Column(name = "amount", precision = 38, scale = 2)
     private BigDecimal amount;
 
     @Column(name = "type")
@@ -38,6 +50,8 @@ public class Transaction {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "transaction_date")
+    private LocalDate transactionDate;
     protected Transaction() {}
 
     public static Transaction createTransaction(User user, Account account, Category category, BigDecimal amount, TransactionType transactionType, String description) {

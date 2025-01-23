@@ -11,17 +11,19 @@ import java.util.Objects;
 @Table(name = "categories")
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
 
     @Column(name = "name")
     private String name;
 
-    protected Category() {}
+/*    @Column(name = "type", nullable = false)
+    private Integer type;*/
+    public Category() {}
 
     public static Category createCategory(User user, String name) {
         Category category = new Category();

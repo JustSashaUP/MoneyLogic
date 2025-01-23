@@ -17,17 +17,26 @@ import java.util.Optional;
 @Table(name = "accounts")
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    public Account(User user, String name, BigDecimal balance, LocalDate accountCreatedDate) {
+        this.user = user;
+        this.name = name;
+        this.balance = balance;
+        this.accountCreatedDate = accountCreatedDate;
+    }
+
+   // @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+
     private User user;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "balance")
+    @Column(name = "balance", precision = 38, scale = 2)
     private BigDecimal balance = BigDecimal.valueOf(0.0);
     /**
      * Date when the user created the current account
@@ -37,13 +46,14 @@ public class Account {
     /**
      * Transactions related to the user's account
      * */
-    @Transient
-    private Optional<List<Transaction>> transactions;
-    /**
-     * Category templates related to the user's account
-     * */
-    @Transient
-    private Optional<List<Category>> categories;
+//     @Transient
+//    private Optional<List<Transaction>> transactions;
+//    /**
+//     * Category templates related to the user's account
+//     * */
+//    @Transient
+//    private Optional<List<Category>> categories;
+//
 
     protected Account() {}
 
@@ -53,8 +63,8 @@ public class Account {
         account.user = user;
         account.name = name;
         account.balance = balance;
-        account.transactions = Optional.ofNullable(transactions);
-        account.categories = Optional.ofNullable(categories);
+        //account.transactions = Optional.ofNullable(transactions);
+       // account.categories = Optional.ofNullable(categories);
         account.accountCreatedDate = CommonUtils.parseToLocalDate(accountCreatedDate);
         return account;
     }
@@ -65,8 +75,8 @@ public class Account {
         account.user = user;
         account.name = name;
         account.balance = balance;
-        account.transactions = Optional.ofNullable(transactions);
-        account.categories = Optional.ofNullable(categories);
+        //account.transactions = Optional.ofNullable(transactions);
+       // account.categories = Optional.ofNullable(categories);
         account.accountCreatedDate = LocalDate.now();
         return account;
     }
@@ -75,7 +85,7 @@ public class Account {
         for (Transaction transaction : transactions) {
             this.balance = transaction.getTransactionType().apply(transaction.getAmount(), balance);
         }
-        this.transactions = Optional.of(transactions);
+        //this.transactions = Optional.of(transactions);
     }
 
     public BigDecimal getBalance() {
@@ -107,8 +117,8 @@ public class Account {
                 ", name='" + name + '\'' +
                 ", balance=" + balance +
                 ", accountCreatedDate=" + accountCreatedDate +
-                ", transactions=" + transactions +
-                ", categories=" + categories +
+               // ", transactions=" + transactions +
+               // ", categories=" + categories +
                 '}';
     }
 }
