@@ -32,29 +32,42 @@ public class Transaction {
     @Column(name = "amount")
     private BigDecimal amount;
 
+    @Column(name = "type")
+    private TransactionType transactionType;
+
     @Column(name = "description")
     private String description;
 
     protected Transaction() {}
 
-    public static Transaction createTransaction(User user, Account account, Category category, BigDecimal amount, String description) {
+    public static Transaction createTransaction(User user, Account account, Category category, BigDecimal amount, TransactionType transactionType, String description) {
         Transaction transaction = new Transaction();
         transaction.user = user;
         transaction.account = account;
         transaction.category = category;
         transaction.amount = amount;
+        transaction.transactionType = transactionType;
         transaction.description = description;
         return transaction;
     }
 
-    public static Transaction createTransactionWithoutCategory(User user, Account account, BigDecimal amount, String description) {
+    public static Transaction createTransactionWithoutCategory(User user, Account account, BigDecimal amount, TransactionType transactionType, String description) {
         Transaction transaction = new Transaction();
         transaction.user = user;
         transaction.account = account;
         transaction.category = null;
         transaction.amount = amount;
+        transaction.transactionType = transactionType;
         transaction.description = description;
         return transaction;
+    }
+
+    public TransactionType getTransactionType() {
+        return transactionType;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
     }
 
     @Override
@@ -73,5 +86,14 @@ public class Transaction {
     @Override
     public int hashCode() {
         return Objects.hash(id, user, account, category, amount, description);
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                ", category=" + category +
+                ", amount=" + amount +
+                ", transactionType=" + transactionType +
+                '}';
     }
 }
