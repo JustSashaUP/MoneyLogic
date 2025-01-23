@@ -37,3 +37,4 @@ for (let i = 0; i < passwordHideButtonElements.length; i++) {
     }
   });
 }
+

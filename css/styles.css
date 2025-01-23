@@ -223,6 +223,8 @@ svg * {
   --color-light-alt: #FAFAFA;
   --color-grey: #3F3F46;
   --color-blue: #1570EF;
+  --color-sidebar: #2C2C2C;
+  --color-sidebar-text: #9E9E9E;
   --container-width: 1500px;
   --container-padding-x: 15px;
   --font-family-base: "Poppins", sans-serif;
@@ -232,6 +234,7 @@ svg * {
   --border-input: 1px solid var(--color-grey);
   --border-radius: 20px;
   --border-radius-input: 8px;
+  --border-radius-sidebar: 16px;
   --shadow: 40px 40px 60px 0 #1e1f21;
   --z-index-layer-theme: -100;
   --transition-duration: 0.2s;
