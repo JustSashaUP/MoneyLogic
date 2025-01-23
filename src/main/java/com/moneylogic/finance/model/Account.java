@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import  com.moneylogic.finance.model.User;
+
 @Setter
 @Getter
 @Entity
@@ -69,6 +69,17 @@ public class Account {
         account.categories = Optional.ofNullable(categories);
         account.accountCreatedDate = LocalDate.now();
         return account;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        for (Transaction transaction : transactions) {
+            this.balance = transaction.getTransactionType().apply(transaction.getAmount(), balance);
+        }
+        this.transactions = Optional.of(transactions);
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
     }
 
     @Override
