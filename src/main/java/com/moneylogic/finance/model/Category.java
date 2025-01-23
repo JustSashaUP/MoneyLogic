@@ -21,16 +21,12 @@ public class Category {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "type")
-    private TransactionType transactionType;
-
     protected Category() {}
 
-    public static Category createCategory(User user, String name, TransactionType transactionType) {
+    public static Category createCategory(User user, String name) {
         Category category = new Category();
         category.user = user;
         category.name = name;
-        category.transactionType = transactionType;
         return category;
     }
 
@@ -38,7 +34,6 @@ public class Category {
         Category category = new Category();
         category.user = null;
         category.name = null;
-        category.transactionType = null;
         return category;
     }
 
@@ -47,21 +42,21 @@ public class Category {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Category category = (Category) o;
-        return id == category.id && Objects.equals(user, category.user) && Objects.equals(name, category.name) && transactionType == category.transactionType;
+        return id == category.id &&
+                Objects.equals(user, category.user) &&
+                Objects.equals(name, category.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, name, transactionType);
+        return Objects.hash(id, user, name);
     }
 
     @Override
     public String toString() {
         return "Category{" +
                 "id=" + id +
-                ", user=" + user +
                 ", name='" + name + '\'' +
-                ", transactionType=" + transactionType +
                 '}';
     }
 }
