@@ -1,0 +1,19 @@
+@import 
+  'normalize',
+  'fonts',
+  'mixins',
+  'media',
+  'variables',
+  'utils',
+  'globals';
+
+@import
+  'blocks/button',
+  'blocks/logo',
+  'blocks/theme-toggler',
+  'blocks/header',
+  'blocks/hero',
+  'blocks/modal-registration',
+  'blocks/modal-login',
+  'blocks/cross-button',
+  'blocks/field'

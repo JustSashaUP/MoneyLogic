@@ -1,0 +1,100 @@
+.hero {
+  padding-block: 100px;
+
+  @include tablet {
+    padding-block: 30px;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+
+    @include tablet {
+      align-items: center;
+      row-gap: 60px;
+    }
+
+    @include mobile {
+      row-gap: 30px;
+    }
+
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 50px;
+  }
+
+  &__body {
+    max-width: 695px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    text-align: end;
+
+    @include tablet {
+      text-align: center;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    @include fluid-text(100, 70);
+
+    margin-bottom: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    user-select: none;
+
+    span {
+      color: var(--color-light-purple);
+      display: block;
+      margin-bottom: -30%;
+    }
+
+    @include tablet {
+      align-items: center;
+    }
+    
+  }
+
+  &__description {
+    margin-bottom: 38px;
+  }
+
+  &__image {
+    width: 50%;
+    user-select: none;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 100px;
+
+    @include desktop {
+      column-gap: 50px;
+    }
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 15px;
+      place-items: center;
+    }
+
+    @include mobile-s {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+}

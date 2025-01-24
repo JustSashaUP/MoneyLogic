@@ -1,0 +1,62 @@
+.header {
+  padding-block: 30px;
+
+  @include tablet {
+    padding-block: 15px;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 50px;
+
+    @include mobile-s {
+      flex-direction: column;
+      row-gap: 15px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    column-gap: 100px;
+
+    @include tablet {
+      column-gap: 60px;
+    }
+
+    @include mobile {
+      column-gap: 40px;
+    }
+  }
+
+  &__item {
+    align-self: center;
+  }
+
+  &__link {
+    @include fluid-text(25, 22);
+    position: relative;
+
+    &:hover {
+      color: var(--color-accent);
+
+      &::before {
+        width: 100%;
+      }
+    }
+
+    &::before {
+      content: '';
+
+      width: 0%;
+      height: 2px;
+      background-color: currentColor;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      translate: -50%;
+      transition-duration: var(--transition-duration);
+    }
+  }
+}

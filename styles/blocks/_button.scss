@@ -1,0 +1,26 @@
+.button {
+  @include reset-button;
+
+  color: var(--color-light);
+  height: var(--button-height);
+  padding-inline: 67px;
+  border: var(--border);
+
+  @include hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  &--logreg {
+    @include reset-button;
+    @include hover {
+      scale: 1.05;
+    }
+
+    font-size: 16px;
+    height: var(--input-height);
+    border-radius: var(--border-radius-input);
+    background-color: var(--color-blue);
+    color: var(--color-light);
+  }
+}
