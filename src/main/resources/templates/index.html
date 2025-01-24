@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Money Logic</title>
 
-  <link rel="stylesheet" href="./css/styles.css">
-  <script src="./js/script.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
     <section class="hero">
       <div class="hero__inner container">
         <div class="hero__content">
-          <img class="hero__image" src="./images/hero-illustration.svg" alt="" loading="lazy">
+          <img class="hero__image" src="images/hero-illustration.svg" alt="" loading="lazy">
           <div class="hero__body">
             <h1 class="hero__title">
               <span>Control</span><br>your money
@@ -180,7 +180,7 @@
     </section>
   </mian>
 
-  <dialog class="modal-registration" data-js-registration-form>
+  <dialog class="modal-registration" data-js-registration-form sec:authorize="isAnonymous()">
     <form method="dialog" class="modal-registration__close-button-wrapper">
       <button class="modal-registration__close-button cross-button">
         <span class="visually-hidden">
@@ -188,7 +188,7 @@
         </span>
       </button>
     </form>
-    <form class="modal-registration__form" method="post">
+    <form class="modal-registration__form" th:action="@{/register}" method="POST">
       <h2 class="modal-registration__form-title">
         Create an account
       </h2>
@@ -228,13 +228,13 @@
         <button class="modal-registration__submit-button button--logreg" type="submit">
           Create account
         </button>
-        <button class="modal-registration__google-button">
+        <button th:href="@{/oauth2/authorization/google}" class="modal-registration__google-button">
           Continue with Google
         </button>
       </div>
     </form>
   </dialog>
-  <dialog class="modal-login" data-js-login-form>
+  <dialog class="modal-login" data-js-login-form sec:authorize="isAnonymous()">
     <form method="dialog" class="modal-login__close-button-wrapper">
       <button class="modal-login__close-button cross-button">
         <span class="visually-hidden">
@@ -242,7 +242,7 @@
         </span>
       </button>
     </form>
-    <form class="modal-login__form" method="post">
+    <form class="modal-login__form" th:action="@{/login}" method="POST">
       <h2 class="modal-login__form-title">Login to your account</h2>
       <div class="modal-login__field field">
         <label class="field__label" for="login">
@@ -273,7 +273,7 @@
           </svg>
         </div>
       </div>
-      <button class="modal-login__submit-button button--logreg">
+      <button class="modal-login__submit-button button--logreg" type="submit">
         Login now
       </button>
     </form>
