@@ -37,15 +37,15 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/register", "/oauth2/**").permitAll()
+                        .requestMatchers("/", "/user/register", "/login","/oauth2/**", "/css/**", "/js/**", "/fonts/**", "/images/**", "/styles/**").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
-                        .loginPage("/login")
+                        .loginPage("/")
                         .permitAll()
                         .defaultSuccessUrl("/profile", true)
-                        .failureUrl("/login?error=true"))
+                        .failureUrl("/?error=true"))
                 .oauth2Login(oauth2 -> oauth2
-                        .loginPage("/login")
+                        .loginPage("/")
                         .defaultSuccessUrl("/profile", true)
                         .userInfoEndpoint(userInfo -> userInfo
                                 .userService(customOAuth2UserService)) // Это связывает ваш сервис
@@ -58,7 +58,7 @@ public class SecurityConfig {
                         .maximumSessions(1))
                 .logout(logout -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/login?logout")
+                        .logoutSuccessUrl("/?logout")
                         .invalidateHttpSession(true)
                         .clearAuthentication(true)
                         .permitAll())

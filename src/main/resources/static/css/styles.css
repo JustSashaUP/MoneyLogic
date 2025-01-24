@@ -352,7 +352,7 @@ h1, h2, h3, h4 {
   padding: 0;
   width: 100px;
   height: 45px;
-  background: url(../../images/ui-components/dark-theme.svg) center/cover no-repeat;
+  background: url(../images/ui-components/dark-theme.svg) center/cover no-repeat;
   appearance: none;
   cursor: pointer;
   transition: 0.5s;
@@ -365,18 +365,18 @@ h1, h2, h3, h4 {
   aspect-ratio: 1;
   position: absolute;
   border-radius: 50%;
-  background: url(../../images/ui-components/moon.svg) center/cover no-repeat;
+  background: url(../images/ui-components/moon.svg) center/cover no-repeat;
   top: 0;
   left: 0;
   transition: 0.5s;
 }
 .theme-toggler:checked {
-  background: url(../../images/ui-components/light-theme.svg) center/cover no-repeat;
+  background: url(../images/ui-components/light-theme.svg) center/cover no-repeat;
 }
 .theme-toggler:checked::before {
   left: auto;
   right: 0;
-  background: url(../../images/ui-components/sun.svg) center/cover no-repeat;
+  background: url(../images/ui-components/sun.svg) center/cover no-repeat;
 }
 
 .header {
@@ -606,7 +606,7 @@ h1, h2, h3, h4 {
 }
 .modal-registration__google-button::before {
   content: "";
-  background: url(../../images/icons/google-icon.svg);
+  background: url(../images/icons/google-icon.svg);
   width: 20px;
   aspect-ratio: 1;
 }
@@ -733,7 +733,7 @@ h1, h2, h3, h4 {
   right: 11px;
   rotate: 45deg;
   background-color: #70707B;
-  opacity: var(--line-opacity, 1);
+  /*opacity: var(--line-opacity, 1);*/
   transition: opacity 0.2s ease;
 }
 .field__password-wrapper input {

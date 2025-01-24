@@ -1,5 +1,6 @@
 package com.moneylogic.finance.controller;
 
+import com.moneylogic.finance.logging.LoggerSingleton;
 import com.moneylogic.finance.model.User;
 import com.moneylogic.finance.service.UserServiceImpl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,30 +22,33 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
-    // Страница логина
-    @GetMapping("/login")
-    public String loginPage(Model model, @RequestParam(value = "logout", required = false) String logout, @RequestParam(value = "error", required = false) String error) {
+
+    @GetMapping("/")
+    public String index(Model model,
+                        @RequestParam(value = "logout", required = false) String logout,
+                        @RequestParam(value = "error", required = false) String error) {
         if (error != null) {
             model.addAttribute("error", "Invalid credentials");
         }
         if (logout != null) {
             model.addAttribute("message", "You have successfully logged out.");
         }
-        return "login";
-    }
-
-    // Страница регистрации
-    @GetMapping("/register")
-    public String registerPage() {
-        return "register";
+        return "index"; // Вернуть index.html из папки templates
     }
 
     // Обработка формы регистрации
-    @PostMapping("/register")
-    public String register(@RequestParam String username, @RequestParam String email, @RequestParam String password, Model model) {
-        User user = User.createUserWithCurrentDate(username, email, password);
-        userService.saveUser(user);
-        return "redirect:/login?register=true";
+    @PostMapping("/user/register")
+    public String register(@RequestParam("loginRegister") String username, @RequestParam("email") String email, @RequestParam("password") String password, Model model) {
+        try{
+
+            User user = User.createUserWithCurrentDate(username, email, password);
+            String comment = userService.saveUser(user);
+            LoggerSingleton.info(AuthController.class, comment);
+            return "redirect:/?register=true";
+        }catch (Exception e){
+            LoggerSingleton.error(AuthController.class, e.getMessage());
+        }
+        return "redirect:/?register=false";
     }
 
     // Проверка, вошел ли пользователь в систему
@@ -62,9 +66,9 @@ public class AuthController {
                 String username = userDetails.getUsername();
                 model.addAttribute("user", username);
             }
-            return "profile";
+            return "main-page";
         }
-        return "redirect:/login";
+        return "redirect:/";
     }
 
 }
