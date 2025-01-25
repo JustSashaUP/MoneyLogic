@@ -23,7 +23,7 @@
         <li class="header__item">
           <a class="header__link" href="#" data-js-login-link sec:authorize="isAnonymous()">Log in</a>
         </li>
-        <li class="header__item" sec:authorize="isAuthenticated()">
+        <li class="header__item" sec:authorize="isAuthenticated()" th:href="@{/profile}">
           <div class="header__profile profile profile--index">
             <a th:href="@{/profile}">
               <img
