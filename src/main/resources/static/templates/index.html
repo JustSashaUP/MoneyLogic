@@ -8,12 +8,12 @@
 
   <link rel="stylesheet" href="../css/styles.css">
   <script src="../js/script.js" defer></script>
-</head>
 
+</head>
 <body>
   <header class="header">
     <div class="header__inner container">
-      <a class="header__logo logo" href="/">
+      <a class="header__logo logo" href="/static">
         <span>Money</span>logic
       </a>
       <ul class="header__list">
@@ -26,13 +26,12 @@
       </ul>
       <!-- <input type="checkbox" class="theme-toggler"> -->
     </div>
-
   </header>
-  <mian class="content">
+  <main class="content">
     <section class="hero">
       <div class="hero__inner container">
         <div class="hero__content">
-          <img class="hero__image" src="../static/images/hero-illustration.svg" alt="" loading="lazy">
+          <img class="hero__image" src="/images/hero-illustration.svg" alt="" loading="lazy">
           <div class="hero__body">
             <h1 class="hero__title">
               <span>Control</span><br>your money
@@ -178,7 +177,7 @@
         </div>
       </div>
     </section>
-  </mian>
+  </main>
 
   <dialog class="modal-registration" data-js-registration-form sec:authorize="isAnonymous()">
     <form method="dialog" class="modal-registration__close-button-wrapper">
@@ -242,7 +241,7 @@
         </span>
       </button>
     </form>
-    <form class="modal-login__form" th:action="@{/}" method="POST">
+    <form class="modal-login__form" th:action="@{/static}" method="POST">
       <h2 class="modal-login__form-title">Login to your account</h2>
       <div class="modal-login__field field">
         <label class="field__label" for="username">
