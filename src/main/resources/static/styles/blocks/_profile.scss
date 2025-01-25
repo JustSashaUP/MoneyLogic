@@ -1,0 +1,31 @@
+.profile {
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-profile);
+  border-radius: 8px;
+
+  &--index {
+    background-color: #333;
+    opacity: 0.5;
+  }
+
+  @include hover {
+    box-shadow: var(--color-accent) -1px 1px 11px;
+  }
+
+  &__image {
+    margin-right: 16px;
+  }
+
+  &__title {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  &__email {
+    font-size: 12px;
+    color: var(--color-sidebar-text);
+  }
+}

@@ -2,7 +2,7 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Money Logic</title>
 
@@ -23,16 +23,43 @@
         <li class="header__item">
           <a class="header__link" href="#" data-js-login-link sec:authorize="isAnonymous()">Log in</a>
         </li>
+        <!-- <li class="header__item">
+          <div class="header__profile profile profile--index">
+            <img 
+              class="profile__image" 
+              src="../static/images/sidebar/avatar.svg" 
+              alt="Profile image"
+              width="40"
+              height="40" 
+              loading="lazy"
+            >
+            <div class="profile__body">
+              <h2 class="profile__title">
+                Brooklyn Simmons
+              </h2>
+              <div class="profile__email">
+                <p>brooklyn@simmons.com</p>
+              </div>
+            </div>
+            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.75 11.3334C11.2102 11.3334 11.5833 10.9603 11.5833 10.5C11.5833 10.0398 11.2102 9.66669 10.75 9.66669C10.2897 9.66669 9.91663 10.0398 9.91663 10.5C9.91663 10.9603 10.2897 11.3334 10.75 11.3334Z" fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10.75 5.49998C11.2102 5.49998 11.5833 5.12688 11.5833 4.66665C11.5833 4.20641 11.2102 3.83331 10.75 3.83331C10.2897 3.83331 9.91663 4.20641 9.91663 4.66665C9.91663 5.12688 10.2897 5.49998 10.75 5.49998Z" fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10.75 17.1667C11.2102 17.1667 11.5833 16.7936 11.5833 16.3333C11.5833 15.8731 11.2102 15.5 10.75 15.5C10.2897 15.5 9.91663 15.8731 9.91663 16.3333C9.91663 16.7936 10.2897 17.1667 10.75 17.1667Z" fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="#" data-js-login-link>Log out</a>
+        </li>        -->
       </ul>
       <!-- <input type="checkbox" class="theme-toggler"> -->
     </div>
-
   </header>
-  <mian class="content">
+  <main class="content">
     <section class="hero">
       <div class="hero__inner container">
         <div class="hero__content">
-          <img class="hero__image" src="../static/images/hero-illustration.svg" alt="" loading="lazy">
+          <img class="hero__image" src="../images/hero-illustration.svg" alt="" loading="lazy">
           <div class="hero__body">
             <h1 class="hero__title">
               <span>Control</span><br>your money
@@ -178,7 +205,7 @@
         </div>
       </div>
     </section>
-  </mian>
+  </main>
 
   <dialog class="modal-registration" data-js-registration-form sec:authorize="isAnonymous()">
     <form method="dialog" class="modal-registration__close-button-wrapper">
@@ -273,11 +300,17 @@
           </svg>
         </div>
       </div>
-      <button class="modal-login__submit-button button--logreg" type="submit">
-        Login now
-      </button>
+      <div class="modal-registration__buttons">
+        <button class="modal-registration__submit-button button--logreg" type="submit">
+          Create account
+        </button>
+        <a th:href="@{/oauth2/authorization/google}" class="modal-registration__google-button" type="button">
+          Continue with Google
+        </a>
+      </div>
     </form>
   </dialog>
+
 </body>
 
 </html>

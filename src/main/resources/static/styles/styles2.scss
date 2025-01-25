@@ -1,10 +1,13 @@
-@import 'normalize',
-'fonts',
-'mixins',
-'media',
-'variables',
-'utils',
-'globals';
+@import 
+  'normalize',
+  'fonts',
+  'mixins',
+  'media',
+  'variables',
+  'utils',
+  'globals';
 
-@import 'blocks/logo',
-'blocks/sidebar';
+@import 
+  'blocks/logo',
+  'blocks/sidebar',
+  'blocks/profile';
