@@ -62,7 +62,7 @@
 
     &::before {
       content: '';
-      background: url(../../images/icons/google-icon.svg);
+      background: url(/static/images/icons/google-icon.svg);
 
       @include square(20px);
 
