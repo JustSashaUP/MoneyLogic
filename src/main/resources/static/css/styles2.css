@@ -387,6 +387,17 @@ h1, h2, h3, h4 {
 .profile__image {
   margin-right: 16px;
 }
+.profile__title, .profile__email {
+  max-width: 170px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.profile__title p, .profile__email p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 .profile__title {
   font-size: 16px;
   line-height: 1.2;

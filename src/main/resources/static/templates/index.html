@@ -23,7 +23,7 @@
         <li class="header__item">
           <a class="header__link" href="#" data-js-login-link sec:authorize="isAnonymous()">Log in</a>
         </li>
-         <li class="header__item" sec:authorize="isAuthenticated()" th:href="@{/profile}">
+        <li class="header__item" sec:authorize="isAuthenticated()" th:href="@{/profile}">
           <div class="header__profile profile profile--index">
             <img 
               class="profile__image" 
@@ -70,8 +70,7 @@
               </p>
             </div>
 
-            <!--  Sdelai normalnoe otobrajenie, nado uzat` <a></a>          -->
-            <a class="hero__button button"  data-js-registration-link sec:authorize="isAuthenticated()" th:href="@{/profile}">
+            <a class="hero__button button button--auth"  data-js-registration-link sec:authorize="isAuthenticated()" th:href="@{/profile}">
               Join now
             </a>
             <button class="hero__button button" type="button" data-js-registration-link sec:authorize="isAnonymous()">
