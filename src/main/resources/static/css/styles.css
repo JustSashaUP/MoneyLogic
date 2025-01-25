@@ -339,6 +339,10 @@ h1, h2, h3, h4 {
     scale: 1.05;
   }
 }
+.button--auth {
+  display: flex;
+  align-items: center;
+}
 
 .logo {
   font-size: 30px;
@@ -607,7 +611,7 @@ h1, h2, h3, h4 {
 }
 .modal-registration__google-button::before {
   content: "";
-  background: url(/static/images/icons/google-icon.svg);
+  background: url(../images/icons/google-icon.svg);
   width: 20px;
   aspect-ratio: 1;
 }
@@ -779,6 +783,17 @@ h1, h2, h3, h4 {
 }
 .profile__image {
   margin-right: 16px;
+}
+.profile__title, .profile__email {
+  max-width: 170px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.profile__title p, .profile__email p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .profile__title {
   font-size: 16px;

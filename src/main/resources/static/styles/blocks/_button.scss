@@ -23,4 +23,9 @@
     background-color: var(--color-blue);
     color: var(--color-light);
   }
+
+  &--auth {
+    display: flex;
+    align-items: center;
+  }
 }

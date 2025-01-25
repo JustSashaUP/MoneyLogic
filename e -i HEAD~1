@@ -1,0 +1,451 @@
+[33mcommit fea6957f3f5fc535943a1a28b38309813f0a5c04[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Denis Pudlo <crisehop@gmail.com>
+Date:   Sat Jan 25 20:19:10 2025 +0100
+
+    fixed text offset on <a> button, fixed text overflow in profile
+
+[33mcommit a14c0d93d9b80be5d7390499308bd00ec23e400d[m
+Author: Bohdan Lytvynovych <110349273+NaoriYchiha@users.noreply.github.com>
+Date:   Sat Jan 25 19:49:11 2025 +0200
+
+    Delete developer.properties
+
+[33mcommit de518a138215dfb6a962fdd1369195fb6fa11db3[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Sat Jan 25 19:47:37 2025 +0200
+
+    Synchronized data about user to frontend
+
+[33mcommit 9c34c65baa7c275290bb4a42be498795183c64e9[m
+Merge: b6e454b 093a635
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Sat Jan 25 19:11:10 2025 +0200
+
+    upd frontend&backend
+
+[33mcommit b6e454b3e0e535157b72bce50b02ed00fc23d383[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Sat Jan 25 19:07:20 2025 +0200
+
+    Moved html directory to static dir
+
+[33mcommit 093a635e541b87890b424e0531a2e476e3cd7b8f[m
+Merge: 6971ac1 c4f64e1
+Author: Bohdan Lytvynovych <110349273+NaoriYchiha@users.noreply.github.com>
+Date:   Sat Jan 25 19:00:41 2025 +0200
+
+    Merge pull request #3 from NaoriYchiha/frontend-new
+    
+    Merge from frontend-new
+
+[33mcommit c4f64e1c438f4f98637b741b12a8b3bfdb77bff3[m[33m ([m[1;31morigin/frontend-new[m[33m)[m
+Author: Denis Pudlo <crisehop@gmail.com>
+Date:   Sat Jan 25 17:56:15 2025 +0100
+
+    1
+
+[33mcommit 6971ac1006bd25e6ba64860640759923c34d9cee[m
+Author: MaximMuntyanov <makczanta1996@gmail.com>
+Date:   Fri Jan 24 18:00:07 2025 +0200
+
+    removed the TYPE field in the category table
+
+[33mcommit 582a339aa1618084e697a31a0f53b77f92b2d2f7[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Fri Jan 24 15:29:18 2025 +0200
+
+    Optimize frontend with backend
+
+[33mcommit cafef73195ff9028f582cff2e972da140633d0b4[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Fri Jan 24 13:08:26 2025 +0200
+
+    Update after merge
+
+[33mcommit 7e6ba726e16837fcf6b09229bfac91247623773e[m
+Merge: 0d22b3b 5c43070
+Author: Oleksandr Savchenko <94720780+JustSashaUP@users.noreply.github.com>
+Date:   Fri Jan 24 12:49:40 2025 +0200
+
+    Merge pull request #2 from NaoriYchiha/frontend
+    
+    Frontend
+
+[33mcommit 5c430707a5fc2d6b2c19d3db740dcf54fe099166[m[33m ([m[1;31morigin/frontend[m[33m)[m
+Merge: 0e4f465 0d22b3b
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Fri Jan 24 12:48:04 2025 +0200
+
+    Resolve merge conflict by incorporating both suggestions
+
+[33mcommit 0d22b3b273aa0bb3530a62b913e4b8db34e06677[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Fri Jan 24 12:18:39 2025 +0200
+
+    optimize imports
+
+[33mcommit 16a8ea0521bc4b04f94b36e5a1c43cb8c73f298a[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Fri Jan 24 12:18:22 2025 +0200
+
+    thymeleaf-springsecurity
+
+[33mcommit 7869b991a3a6d4a3fa33a71d219d0538118a99b3[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Fri Jan 24 12:17:14 2025 +0200
+
+    Add sec:authorize
+
+[33mcommit ed45dea5aa688f3b214704e702ec74bb13c5b370[m
+Author: MaximMuntyanov <makczanta1996@gmail.com>
+Date:   Thu Jan 23 20:06:07 2025 +0200
+
+    Added JUnit&Changed Annotation in model
+
+[33mcommit 0e4f465367c85ac10fc15b482f98eb7b156dbe87[m[33m ([m[1;32mfrontend[m[33m)[m
+Author: Denis Pudlo <crisehop@gmail.com>
+Date:   Thu Jan 23 16:15:03 2025 +0100
+
+    Added home (main) page,  added sidebar to it.
+
+[33mcommit 91dce23a889b726fbb973fb65640a9206f7785ae[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Thu Jan 23 15:19:36 2025 +0200
+
+    add test logger
+
+[33mcommit fe82ff6afd0508b838b56beb1a05037bc510086e[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Thu Jan 23 15:19:17 2025 +0200
+
+    add properties setting to show log at console and save to the file logs.log with max size 5KB and 2 Backups
+
+[33mcommit c14a92583f77971ef5c22cb9b5959b5004376808[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Thu Jan 23 15:17:36 2025 +0200
+
+    add logger using log4j
+
+[33mcommit 4e9d8a14583357edcc73bebfdb7ec0b0ee4e6bcb[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Thu Jan 23 12:25:17 2025 +0200
+
+    refactor code
+
+[33mcommit 83e0a2217d0941ef34d5bc76ff7bdededf0cab46[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Thu Jan 23 12:22:09 2025 +0200
+
+    test functionality of updating balance after added new transaction
+
+[33mcommit 62d697da669224ac3aa56cc0a718fd1ecef120d8[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Thu Jan 23 12:19:01 2025 +0200
+
+    refactor code
+
+[33mcommit 9e48b1030205f62d9d2082d103b8681390c6b8d0[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Thu Jan 23 12:17:47 2025 +0200
+
+    add getTransactionType and getAmount methods
+
+[33mcommit 6eb3c5218fc2b53510d485b51dc59376b90f6d14[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Thu Jan 23 12:16:23 2025 +0200
+
+    update setTransaction method to update balance based on transaction type
+
+[33mcommit 3f94e4094dd9758e0d4c1a68ea7f037bceb84c5e[m
+Author: MaximMuntyanov <makczanta1996@gmail.com>
+Date:   Wed Jan 22 22:33:39 2025 +0200
+
+    Repository&Impl
+
+[33mcommit b4c754919af770780531f119ffa721ad413abde4[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Wed Jan 22 19:47:19 2025 +0200
+
+    add JPA relations
+
+[33mcommit 3ce0bd57f00afa57aacf5653ba2d691c181fcf42[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Wed Jan 22 19:35:53 2025 +0200
+
+    delete CategoryFlow.java"
+
+[33mcommit 7d086c0da9760c07fd969b6142ff25cd707e08d1[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Wed Jan 22 19:32:53 2025 +0200
+
+    add enum constants and methods && rename enum⚙️
+
+[33mcommit d96c47ec8a66a129cf6cbf5e6ed82a94dd7a746b[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Wed Jan 22 19:31:17 2025 +0200
+
+    add POJO class with JPA
+
+[33mcommit 6126c8a7254de248a2c81284b5efd1ca9dd966e7[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Wed Jan 22 19:30:39 2025 +0200
+
+    replace getters and setters
+
+[33mcommit 028f437da10285776a93b69ec048487080daa36e[m
+Author: Denis Pudlo <crisehop@gmail.com>
+Date:   Wed Jan 22 17:48:05 2025 +0100
+
+    adapted index.html, added password hiding, made a theme switch, but not implemented yet
+
+[33mcommit 4c2c4b8876ddc066371ba3f7f96e55078f952ee9[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Wed Jan 22 14:38:34 2025 +0200
+
+    Auth&save to DB from Google
+
+[33mcommit 40cb2cd6b2c264a24c1eb4c47a7350c0146b26e5[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Tue Jan 21 23:31:04 2025 +0200
+
+    Functionality of login(Username\Email)
+
+[33mcommit d0a8706d5312de9650ae8b49ed62acfb6fbdc679[m
+Merge: b5d44c0 2f5a7e5
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Tue Jan 21 23:00:27 2025 +0200
+
+    Merge branch 'main' of https://github.com/NaoriYchiha/MoneyLogic
+
+[33mcommit b5d44c07e3aef827ec063834441e361b57ffb64c[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Tue Jan 21 22:59:24 2025 +0200
+
+    Fixed Reg&Login
+
+[33mcommit 2f5a7e5fd74a4ae470c89e8ce40f736d7a667864[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Tue Jan 21 20:58:29 2025 +0200
+
+    Resolved merge conflict
+
+[33mcommit d5d49adc996c803af9d5c074e174e4b9cebd2152[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Tue Jan 21 20:47:51 2025 +0200
+
+    Register&Login for backend(Google+deafault)
+
+[33mcommit f76689fa973d6c3b3196db5efc13e12578c847d9[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Tue Jan 21 20:46:07 2025 +0200
+
+    Register&Login for backend(Google+deafault)
+
+[33mcommit 8bd63c70d626010df928e8d087d23be3ffec9196[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Tue Jan 21 20:44:52 2025 +0200
+
+    Register&Login for backend(Google+deafault)
+
+[33mcommit f5b94dd773ec912dec8df8e99ab5e7ed6a608413[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Tue Jan 21 20:37:55 2025 +0200
+
+    Register&Login for backend(Google+deafault)
+
+[33mcommit 9323635080159a1de067a148415b243264c5d46c[m
+Author: Denis Pudlo <crisehop@gmail.com>
+Date:   Tue Jan 21 15:13:14 2025 +0100
+
+    init
+
+[33mcommit 2e5352f8c1e3da4f2345b193cf2c6221d5556d95[m
+Author: Denis Pudlo <crisehop@gmail.com>
+Date:   Tue Jan 21 15:13:04 2025 +0100
+
+    created home page
+
+[33mcommit e7f6b397e6fe4c16a16a57aa693da51ce46d0670[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Tue Jan 21 15:57:12 2025 +0200
+
+    init
+
+[33mcommit 5183722e71e1fddf24dc5ef4648342d12f524f6a[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Tue Jan 21 15:56:31 2025 +0200
+
+    init with fields
+
+[33mcommit 4eaa85b5d050edff63067321a62c9861252eb6ba[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Tue Jan 21 15:53:50 2025 +0200
+
+    init enum for Categories
+
+[33mcommit 91b7389e5605063bab61b1951f0d1635b6049506[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Tue Jan 21 15:51:37 2025 +0200
+
+    init context
+
+[33mcommit 32a07d0d0f944dc436cb32c5698638a6f9d3b8e8[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Tue Jan 21 15:51:16 2025 +0200
+
+    add JPA annotations
+    change static methods
+    using class Optional
+
+[33mcommit 8fc20074844e1545e7a5f08271e368bca5dd3fa6[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Tue Jan 21 15:49:45 2025 +0200
+
+    add JPA annotations
+
+[33mcommit 02585de89b1bf29875bb9a9d77e6efd6e18108e2[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Mon Jan 20 20:18:47 2025 +0200
+
+    init
+
+[33mcommit f2e40130aa886de5293f9910693b1f6cb4ee4f7b[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Mon Jan 20 20:18:39 2025 +0200
+
+    create class with common static methods
+
+[33mcommit f9163676be9269e553ba95896e3ab2c377868527[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Mon Jan 20 20:16:25 2025 +0200
+
+    add log4j
+
+[33mcommit c1f91e8e8ff1b9c00750a164fcb906f0826dca0f[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Mon Jan 20 20:16:01 2025 +0200
+
+    add Transaction and Catalogs fields
+    add static factory methods
+
+[33mcommit f8b1292fd729bcc2b7b7f78a4eb3310453ed1c07[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Mon Jan 20 20:12:56 2025 +0200
+
+    remove LocalDate methods for parsing and validation
+
+[33mcommit 5404134ba6e67bba2401042b7151667a24a64568[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Mon Jan 20 19:09:21 2025 +0200
+
+    git update after merge
+
+[33mcommit b8621b96b202d49ad9ad9ac97877568335c8e895[m
+Merge: b287a80 3cd0c59
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Mon Jan 20 19:05:38 2025 +0200
+
+    Merge branch 'main' of https://github.com/NaoriYchiha/MoneyLogic
+
+[33mcommit b287a80ea3fe25ef51e3706972ff2f53564d3202[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Mon Jan 20 19:01:20 2025 +0200
+
+    empty commit
+
+[33mcommit d974df3fe78afbafddb8e442bbdbb60783c85c44[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Mon Jan 20 19:01:05 2025 +0200
+
+    connect to db using custom properties
+
+[33mcommit 4e786abed689968e06202658e2ba46b3e1b5a6c7[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Mon Jan 20 19:00:32 2025 +0200
+
+    add custom properties for every user
+
+[33mcommit 6b551340940b16585a7f7367e9dbf6808bed876f[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Mon Jan 20 19:00:01 2025 +0200
+
+    update
+
+[33mcommit 644809a27a94bec8e301b73b6180dca6493f8710[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Mon Jan 20 18:58:44 2025 +0200
+
+    init
+
+[33mcommit 3cd0c592453c905932e6787751f56bdc69eb0e6e[m
+Author: NaoriYchiha <lolollb770@gmail.com>
+Date:   Mon Jan 20 18:20:14 2025 +0200
+
+    Add a custom DB login
+
+[33mcommit 81d91af48c0cf806c68a19b9f16554b40eed6365[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Sun Jan 19 12:26:39 2025 +0200
+
+    refactor fields modification
+
+[33mcommit 28f3727e92dbfcbe5e6a61125a12b52f99813e5f[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Sun Jan 19 12:25:43 2025 +0200
+
+    change return value of parsing method
+
+[33mcommit 59a79185d3f23b70e11f9c18dff60a6012c583ab[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Sun Jan 19 12:19:07 2025 +0200
+
+    + add static factory methods for object creation and utility methods for LocalDate validation and parsing.
+
+[33mcommit ef31ec5ef2b7c035fe6ee05611b4fce823acb704[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Sat Jan 18 20:09:12 2025 +0200
+
+    add POJO class User
+
+[33mcommit d24074dd1120e850bc77951ba2b2685122f37bf2[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Sat Jan 18 20:08:41 2025 +0200
+
+    add POJO class Account
+
+[33mcommit 8580570588c0da2287fa59f988cbc4f317d43e36[m
+Author: Denis Pudlo <crisehop@gmail.com>
+Date:   Sat Jan 18 17:01:08 2025 +0100
+
+    init index.html
+
+[33mcommit 89abcf3b0e40bdb176e6a15bcfb3adc71a3ec190[m
+Author: MaximMuntyanov <makczanta1996@gmail.com>
+Date:   Sat Jan 18 17:50:16 2025 +0200
+
+    first dump
+
+[33mcommit 7092e3645ade77ea7af83d975bb45680cf7fcdf5[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Sat Jan 18 15:53:17 2025 +0200
+
+    Initial empty commit
+
+[33mcommit f8795e60337832adb2a0436622af0efd6be4ff77[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Sat Jan 18 15:15:40 2025 +0200
+
+    init:
+    +Spring Web
+    +Spring Security 6
+    +Spring Boot 3.4.1
+    +Spring Data JPA
+    +MySQL Driver
+    +Thymeleaf
+    +Lombok
+
+[33mcommit 400330aea2bd58c240df5e208d894b67a1200ddc[m
+Author: Oleksandr Savchenko <alexandr.savchenko04@gmail.com>
+Date:   Sat Jan 18 15:09:10 2025 +0200
+
+    init

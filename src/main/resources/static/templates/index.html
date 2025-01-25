@@ -23,27 +23,29 @@
         <li class="header__item">
           <a class="header__link" href="#" data-js-login-link sec:authorize="isAnonymous()">Log in</a>
         </li>
-         <li class="header__item" sec:authorize="isAuthenticated()" th:href="@{/profile}">
+        <li class="header__item" sec:authorize="isAuthenticated()">
           <div class="header__profile profile profile--index">
-            <img 
-              class="profile__image" 
-              src="../images/sidebar/avatar.svg"
-              alt="Profile image"
-              width="40"
-              height="40" 
-              loading="lazy"
-            >
-            <div class="profile__body">
-              <h2 class="profile__title" th:text="${user}" >
-              </h2>
-              <div class="profile__email" th:text="${email}">
+            <a th:href="@{/profile}">
+              <img
+                class="profile__image"
+                src="../images/sidebar/avatar.svg"
+                alt="Profile image"
+                width="40"
+                height="40"
+                loading="lazy"
+              >
+              <div class="profile__body">
+                <h2 class="profile__title" th:text="${user}" >
+                </h2>
+                <div class="profile__email" th:text="${email}">
+                </div>
               </div>
-            </div>
-            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10.75 11.3334C11.2102 11.3334 11.5833 10.9603 11.5833 10.5C11.5833 10.0398 11.2102 9.66669 10.75 9.66669C10.2897 9.66669 9.91663 10.0398 9.91663 10.5C9.91663 10.9603 10.2897 11.3334 10.75 11.3334Z" fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10.75 5.49998C11.2102 5.49998 11.5833 5.12688 11.5833 4.66665C11.5833 4.20641 11.2102 3.83331 10.75 3.83331C10.2897 3.83331 9.91663 4.20641 9.91663 4.66665C9.91663 5.12688 10.2897 5.49998 10.75 5.49998Z" fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10.75 17.1667C11.2102 17.1667 11.5833 16.7936 11.5833 16.3333C11.5833 15.8731 11.2102 15.5 10.75 15.5C10.2897 15.5 9.91663 15.8731 9.91663 16.3333C9.91663 16.7936 10.2897 17.1667 10.75 17.1667Z" fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+              <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.75 11.3334C11.2102 11.3334 11.5833 10.9603 11.5833 10.5C11.5833 10.0398 11.2102 9.66669 10.75 9.66669C10.2897 9.66669 9.91663 10.0398 9.91663 10.5C9.91663 10.9603 10.2897 11.3334 10.75 11.3334Z" fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.75 5.49998C11.2102 5.49998 11.5833 5.12688 11.5833 4.66665C11.5833 4.20641 11.2102 3.83331 10.75 3.83331C10.2897 3.83331 9.91663 4.20641 9.91663 4.66665C9.91663 5.12688 10.2897 5.49998 10.75 5.49998Z" fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.75 17.1667C11.2102 17.1667 11.5833 16.7936 11.5833 16.3333C11.5833 15.8731 11.2102 15.5 10.75 15.5C10.2897 15.5 9.91663 15.8731 9.91663 16.3333C9.91663 16.7936 10.2897 17.1667 10.75 17.1667Z" fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
           </div>
         </li>
         <li class="header__item" sec:authorize="isAuthenticated()">
@@ -70,8 +72,7 @@
               </p>
             </div>
 
-            <!--  Sdelai normalnoe otobrajenie, nado uzat` <a></a>          -->
-            <a class="hero__button button"  data-js-registration-link sec:authorize="isAuthenticated()" th:href="@{/profile}">
+            <a class="hero__button button button--auth"  data-js-registration-link sec:authorize="isAuthenticated()" th:href="@{/profile}">
               Join now
             </a>
             <button class="hero__button button" type="button" data-js-registration-link sec:authorize="isAnonymous()">

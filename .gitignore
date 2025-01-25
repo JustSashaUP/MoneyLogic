@@ -33,3 +33,4 @@ build/
 .vscode/
 
 ./src/main/java/resources/developer.propeties
+/src/main/resources/developer.properties

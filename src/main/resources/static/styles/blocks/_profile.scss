@@ -19,6 +19,20 @@
     margin-right: 16px;
   }
 
+  &__title,
+  &__email {
+    max-width: 170px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    p {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
   &__title {
     font-size: 16px;
     line-height: 1.2;
