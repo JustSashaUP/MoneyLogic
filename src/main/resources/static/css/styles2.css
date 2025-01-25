@@ -225,6 +225,7 @@ svg * {
   --color-blue: #1570EF;
   --color-sidebar: #2C2C2C;
   --color-sidebar-text: #9E9E9E;
+  --color-profile: #333;
   --container-width: 1500px;
   --container-padding-x: 15px;
   --font-family-base: "Poppins", sans-serif;
@@ -306,7 +307,7 @@ h1, h2, h3, h4 {
 }
 
 .sidebar {
-  width: 260px;
+  width: 310px;
   height: 98vh;
   position: fixed;
   left: 10px;
@@ -359,4 +360,38 @@ h1, h2, h3, h4 {
 .sidebar__link svg {
   color: var(--color-light);
   flex-shrink: 0;
+}
+
+.profile {
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-profile);
+  border-radius: 8px;
+}
+.profile--index {
+  background-color: #333;
+  opacity: 0.5;
+}
+@media (hover: hover) {
+  .profile:hover {
+    box-shadow: var(--color-accent) -1px 1px 11px;
+  }
+}
+@media (hover: none) {
+  .profile:active {
+    box-shadow: var(--color-accent) -1px 1px 11px;
+  }
+}
+.profile__image {
+  margin-right: 16px;
+}
+.profile__title {
+  font-size: 16px;
+  line-height: 1.2;
+}
+.profile__email {
+  font-size: 12px;
+  color: var(--color-sidebar-text);
 }/*# sourceMappingURL=styles2.css.map */

@@ -225,6 +225,7 @@ svg * {
   --color-blue: #1570EF;
   --color-sidebar: #2C2C2C;
   --color-sidebar-text: #9E9E9E;
+  --color-profile: #333;
   --container-width: 1500px;
   --container-padding-x: 15px;
   --font-family-base: "Poppins", sans-serif;
@@ -352,7 +353,7 @@ h1, h2, h3, h4 {
   padding: 0;
   width: 100px;
   height: 45px;
-  background: url(../images/ui-components/dark-theme.svg) center/cover no-repeat;
+  background: url(../../images/ui-components/dark-theme.svg) center/cover no-repeat;
   appearance: none;
   cursor: pointer;
   transition: 0.5s;
@@ -365,18 +366,18 @@ h1, h2, h3, h4 {
   aspect-ratio: 1;
   position: absolute;
   border-radius: 50%;
-  background: url(../images/ui-components/moon.svg) center/cover no-repeat;
+  background: url(../../images/ui-components/moon.svg) center/cover no-repeat;
   top: 0;
   left: 0;
   transition: 0.5s;
 }
 .theme-toggler:checked {
-  background: url(../images/ui-components/light-theme.svg) center/cover no-repeat;
+  background: url(../../images/ui-components/light-theme.svg) center/cover no-repeat;
 }
 .theme-toggler:checked::before {
   left: auto;
   right: 0;
-  background: url(../images/ui-components/sun.svg) center/cover no-repeat;
+  background: url(../../images/ui-components/sun.svg) center/cover no-repeat;
 }
 
 .header {
@@ -606,7 +607,7 @@ h1, h2, h3, h4 {
 }
 .modal-registration__google-button::before {
   content: "";
-  background: url(../images/icons/google-icon.svg);
+  background: url(/static/images/icons/google-icon.svg);
   width: 20px;
   aspect-ratio: 1;
 }
@@ -733,8 +734,8 @@ h1, h2, h3, h4 {
   right: 11px;
   rotate: 45deg;
   background-color: #70707B;
-  /*opacity: var(--line-opacity, 1);*/
   transition: opacity 0.2s ease;
+  opacity: var(--line-opacity, 1);
 }
 .field__password-wrapper input {
   width: 100%;
@@ -752,4 +753,38 @@ h1, h2, h3, h4 {
   .field__forgot-link:active {
     color: var(--color-accent);
   }
+}
+
+.profile {
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-profile);
+  border-radius: 8px;
+}
+.profile--index {
+  background-color: #333;
+  opacity: 0.5;
+}
+@media (hover: hover) {
+  .profile:hover {
+    box-shadow: var(--color-accent) -1px 1px 11px;
+  }
+}
+@media (hover: none) {
+  .profile:active {
+    box-shadow: var(--color-accent) -1px 1px 11px;
+  }
+}
+.profile__image {
+  margin-right: 16px;
+}
+.profile__title {
+  font-size: 16px;
+  line-height: 1.2;
+}
+.profile__email {
+  font-size: 12px;
+  color: var(--color-sidebar-text);
 }/*# sourceMappingURL=styles.css.map */
