@@ -1,6 +1,7 @@
 package com.moneylogic.finance.controller;
 
 import com.moneylogic.finance.logging.LoggerSingleton;
+import com.moneylogic.finance.model.MyUserDetails;
 import com.moneylogic.finance.model.User;
 import com.moneylogic.finance.service.UserServiceImpl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,24 @@ public class AuthController {
     public String index(Model model,
                         @RequestParam(value = "logout", required = false) String logout,
                         @RequestParam(value = "error", required = false) String error) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated()) {
+            // Проверяем, является ли аутентифицированный пользователь OAuth2User
+            if (authentication.getPrincipal() instanceof OAuth2User) {
+                OAuth2User oauth2User = (OAuth2User) authentication.getPrincipal();
+                String name = oauth2User.getAttribute("name");
+                String email = oauth2User.getAttribute("email");
+                model.addAttribute("email", email);
+                model.addAttribute("user", name);
+            } else if (authentication.getPrincipal() instanceof UserDetails) {
+                UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+                String username = userDetails.getUsername();
+                // Предположим, что вы можете получить email через метод getEmail()
+                String email = ((MyUserDetails) userDetails).getEmail(); // если у вас кастомная реализация UserDetails
+                model.addAttribute("user", username);
+                model.addAttribute("email", email);
+            }
+        }
         if (error != null) {
             model.addAttribute("error", "Invalid credentials");
         }
@@ -57,15 +76,19 @@ public class AuthController {
             if (authentication.getPrincipal() instanceof OAuth2User) {
                 OAuth2User oauth2User = (OAuth2User) authentication.getPrincipal();
                 String name = oauth2User.getAttribute("name");
+                String email = oauth2User.getAttribute("email");
+                model.addAttribute("email", email);
                 model.addAttribute("user", name);
             } else if (authentication.getPrincipal() instanceof UserDetails) {
                 UserDetails userDetails = (UserDetails) authentication.getPrincipal();
                 String username = userDetails.getUsername();
+                // Предположим, что вы можете получить email через метод getEmail()
+                String email = ((MyUserDetails) userDetails).getEmail(); // если у вас кастомная реализация UserDetails
                 model.addAttribute("user", username);
+                model.addAttribute("email", email);
             }
             return "main-page";
         }
         return "redirect:/";
     }
-
 }

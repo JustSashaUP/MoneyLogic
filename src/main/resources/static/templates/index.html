@@ -23,22 +23,20 @@
         <li class="header__item">
           <a class="header__link" href="#" data-js-login-link sec:authorize="isAnonymous()">Log in</a>
         </li>
-        <!-- <li class="header__item">
+         <li class="header__item" sec:authorize="isAuthenticated()" th:href="@{/profile}">
           <div class="header__profile profile profile--index">
             <img 
               class="profile__image" 
-              src="../static/images/sidebar/avatar.svg" 
+              src="../images/sidebar/avatar.svg"
               alt="Profile image"
               width="40"
               height="40" 
               loading="lazy"
             >
             <div class="profile__body">
-              <h2 class="profile__title">
-                Brooklyn Simmons
+              <h2 class="profile__title" th:text="${user}" >
               </h2>
-              <div class="profile__email">
-                <p>brooklyn@simmons.com</p>
+              <div class="profile__email" th:text="${email}">
               </div>
             </div>
             <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,9 +46,9 @@
             </svg>
           </div>
         </li>
-        <li class="header__item">
-          <a class="header__link" href="#" data-js-login-link>Log out</a>
-        </li>        -->
+        <li class="header__item" sec:authorize="isAuthenticated()">
+          <a class="header__link" href="/logout" data-js-login-link>Log out</a>
+        </li>
       </ul>
       <!-- <input type="checkbox" class="theme-toggler"> -->
     </div>
@@ -71,7 +69,12 @@
                 voluptate, deserunt officia illo eum neque?
               </p>
             </div>
-            <button class="hero__button button" type="button" data-js-registration-link>
+
+            <!--  Sdelai normalnoe otobrajenie, nado uzat` <a></a>          -->
+            <a class="hero__button button"  data-js-registration-link sec:authorize="isAuthenticated()" th:href="@{/profile}">
+              Join now
+            </a>
+            <button class="hero__button button" type="button" data-js-registration-link sec:authorize="isAnonymous()">
               Join now
             </button>
           </div>
@@ -269,7 +272,7 @@
         </span>
       </button>
     </form>
-    <form class="modal-login__form" th:action="@{/static}" method="POST">
+    <form class="modal-login__form" th:action="@{/}" method="POST">
       <h2 class="modal-login__form-title">Login to your account</h2>
       <div class="modal-login__field field">
         <label class="field__label" for="username">
@@ -302,7 +305,7 @@
       </div>
       <div class="modal-registration__buttons">
         <button class="modal-registration__submit-button button--logreg" type="submit">
-          Create account
+          Login in
         </button>
         <a th:href="@{/oauth2/authorization/google}" class="modal-registration__google-button" type="button">
           Continue with Google

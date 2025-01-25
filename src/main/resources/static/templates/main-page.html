@@ -16,7 +16,7 @@
   <main class="content">
     <section class="sidebar sidebar--compresed">
       <div class="sidebar__header">
-        <a class="sidebar__logo logo" href="/static">
+        <a class="sidebar__logo logo" href="/">
           <span>Money</span>logic
         </a>
       </div>
@@ -82,11 +82,10 @@
           loading="lazy"
         >
         <div class="profile__body">
-          <h2 class="profile__title">
-            Brooklyn Simmons
+          <h2 class="profile__title" th:text="${user}">
           </h2>
           <div class="profile__email">
-            <p>brooklyn@simmons.com</p>
+            <p th:text="${email}"></p>
           </div>
         </div>
         <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
