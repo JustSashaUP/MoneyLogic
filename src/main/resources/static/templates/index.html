@@ -25,7 +25,7 @@
         </li>
         <li class="header__item" sec:authorize="isAuthenticated()" th:href="@{/profile}">
           <div class="header__profile profile profile--index">
-            <a th:href="@{/profile}">
+            <a class="profile__link" th:href="@{/profile}">
               <img
                 class="profile__image"
                 src="../images/sidebar/avatar.svg"
