@@ -22,6 +22,11 @@ public class AccountServiceImpl implements AccountService
     }
 
     @Override
+    public List<Account> getAllAccountsByUserId(Long id) {
+        return accountRepository.findAccountsByUserId(id);
+    }
+
+    @Override
     public Account getAccountById(Long id) {
         try {
             return accountRepository.getById(id);
@@ -31,8 +36,8 @@ public class AccountServiceImpl implements AccountService
     }
 
     @Override
-    public Account saveAccount(Account account) {
-        return accountRepository.save(account);
+    public void saveAccount(Account account) {
+        accountRepository.save(account);
     }
 
     @Override

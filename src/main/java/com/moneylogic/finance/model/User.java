@@ -52,6 +52,10 @@ public class User {
         return user;
     }
 
+    public long getId() {
+        return id;
+    }
+
     public String getPassword() {
         return password;
     }
