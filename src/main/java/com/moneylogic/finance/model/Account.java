@@ -20,14 +20,6 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    public Account(User user, String name, BigDecimal balance, LocalDate accountCreatedDate) {
-        this.user = user;
-        this.name = name;
-        this.balance = balance;
-        this.accountCreatedDate = accountCreatedDate;
-    }
-
-   // @ManyToOne(cascade = CascadeType.ALL)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
 
@@ -46,14 +38,13 @@ public class Account {
     /**
      * Transactions related to the user's account
      * */
-//     @Transient
-//    private Optional<List<Transaction>> transactions;
-//    /**
-//     * Category templates related to the user's account
-//     * */
-//    @Transient
-//    private Optional<List<Category>> categories;
-//
+     @Transient
+    private Optional<List<Transaction>> transactions;
+    /**
+     * Category templates related to the user's account
+     * */
+    @Transient
+    private Optional<List<Category>> categories;
 
     protected Account() {}
 
@@ -63,8 +54,8 @@ public class Account {
         account.user = user;
         account.name = name;
         account.balance = balance;
-        //account.transactions = Optional.ofNullable(transactions);
-       // account.categories = Optional.ofNullable(categories);
+        account.transactions = Optional.ofNullable(transactions);
+        account.categories = Optional.ofNullable(categories);
         account.accountCreatedDate = CommonUtils.parseToLocalDate(accountCreatedDate);
         return account;
     }
@@ -75,8 +66,17 @@ public class Account {
         account.user = user;
         account.name = name;
         account.balance = balance;
-        //account.transactions = Optional.ofNullable(transactions);
-       // account.categories = Optional.ofNullable(categories);
+        account.transactions = Optional.ofNullable(transactions);
+        account.categories = Optional.ofNullable(categories);
+        account.accountCreatedDate = LocalDate.now();
+        return account;
+    }
+
+    public static Account createEmptyAccountWithCurrentDate(User user, String name, BigDecimal balance) {
+        Account account = new Account();
+        account.user = user;
+        account.name = name;
+        account.balance = balance;
         account.accountCreatedDate = LocalDate.now();
         return account;
     }
@@ -85,7 +85,15 @@ public class Account {
         for (Transaction transaction : transactions) {
             this.balance = transaction.getTransactionType().apply(transaction.getAmount(), balance);
         }
-        //this.transactions = Optional.of(transactions);
+        this.transactions = Optional.of(transactions);
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public BigDecimal getBalance() {
@@ -113,12 +121,10 @@ public class Account {
     public String toString() {
         return "Account{" +
                 "id=" + id +
-                ", user=" + user +
+                ", user=" + user.getEmail() +
                 ", name='" + name + '\'' +
                 ", balance=" + balance +
                 ", accountCreatedDate=" + accountCreatedDate +
-               // ", transactions=" + transactions +
-               // ", categories=" + categories +
                 '}';
     }
 }
