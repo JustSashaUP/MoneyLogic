@@ -25,7 +25,7 @@ public enum TransactionType {
 
     @Override
     public String toString() {
-        return "Transaction Type = " + type;
+        return type;
     }
 
     public abstract BigDecimal apply(BigDecimal amount, BigDecimal total);

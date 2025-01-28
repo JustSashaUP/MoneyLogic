@@ -1,5 +1,6 @@
 package com.moneylogic.finance.model;
 
+import com.moneylogic.finance.util.CommonUtils;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,16 +18,6 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    public Transaction(User user, Account account, Category category, BigDecimal amount, TransactionType transactionType, String description, LocalDate transactionDate) {
-        this.user = user;
-        this.account = account;
-        this.category = category;
-        this.amount = amount;
-        this.transactionType = transactionType;
-        this.description = description;
-        this.transactionDate = transactionDate;
-    }
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
@@ -38,7 +29,7 @@ public class Transaction {
 
     //@OneToOne(mappedBy = "category_id")
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
     @Column(name = "amount", precision = 38, scale = 2)
@@ -52,26 +43,46 @@ public class Transaction {
 
     @Column(name = "transaction_date")
     private LocalDate transactionDate;
+
     protected Transaction() {}
 
-    public static Transaction createTransaction(User user, Account account, Category category, BigDecimal amount, TransactionType transactionType, String description) {
+    public static Transaction createTransaction(User user, Account account, Category category,
+                                                TransactionType transactionType, BigDecimal amount,
+                                                String transactionDate, String description) {
         Transaction transaction = new Transaction();
         transaction.user = user;
         transaction.account = account;
         transaction.category = category;
         transaction.amount = amount;
         transaction.transactionType = transactionType;
+        transaction.transactionDate = CommonUtils.parseToLocalDate(transactionDate);
         transaction.description = description;
         return transaction;
     }
 
-    public static Transaction createTransactionWithoutCategory(User user, Account account, BigDecimal amount, TransactionType transactionType, String description) {
+    public static Transaction createTransactionWithoutCategory(User user, Account account, BigDecimal amount,
+                                                               TransactionType transactionType,
+                                                               String transactionDate, String description) {
         Transaction transaction = new Transaction();
         transaction.user = user;
         transaction.account = account;
         transaction.category = null;
         transaction.amount = amount;
         transaction.transactionType = transactionType;
+        transaction.transactionDate = CommonUtils.parseToLocalDate(transactionDate);
+        transaction.description = description;
+        return transaction;
+    }
+
+    public static Transaction createTransactionWithCurrentDate(User user, Account account, Category category,
+                                                TransactionType transactionType, BigDecimal amount, String description) {
+        Transaction transaction = new Transaction();
+        transaction.user = user;
+        transaction.account = account;
+        transaction.category = category;
+        transaction.amount = amount;
+        transaction.transactionType = transactionType;
+        transaction.transactionDate = LocalDate.now();
         transaction.description = description;
         return transaction;
     }
@@ -82,6 +93,10 @@ public class Transaction {
 
     public BigDecimal getAmount() {
         return amount;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     @Override
