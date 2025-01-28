@@ -36,12 +36,16 @@ public class Account {
     @Column(name = "created_date")
     private LocalDate accountCreatedDate;
     /**
-     * Transactions related to the user's account
+     * Need for correctly cascade removing
      * */
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Transaction> transactions = new ArrayList<>();
+    private List<Transaction> transactionList = new ArrayList<>();
+
+    /**
+     * Transactions related to the user's account
+     * */
     @Transient
-    private Optional<List<Transaction>> transactionsoptional;
+    private Optional<List<Transaction>> transactions;
     /**
      * Category templates related to the user's account
      * */
@@ -56,7 +60,7 @@ public class Account {
         account.user = user;
         account.name = name;
         account.balance = balance;
-        account.transactionsoptional = Optional.ofNullable(transactions);
+        account.transactions = Optional.ofNullable(transactions);
         account.categories = Optional.ofNullable(categories);
         account.accountCreatedDate = CommonUtils.parseToLocalDate(accountCreatedDate);
         return account;
@@ -68,7 +72,7 @@ public class Account {
         account.user = user;
         account.name = name;
         account.balance = balance;
-        account.transactionsoptional = Optional.ofNullable(transactions);
+        account.transactions = Optional.ofNullable(transactions);
         account.categories = Optional.ofNullable(categories);
         account.accountCreatedDate = LocalDate.now();
         return account;
@@ -87,7 +91,7 @@ public class Account {
         for (Transaction transaction : transactions) {
             this.balance = transaction.getTransactionType().apply(transaction.getAmount(), balance);
         }
-        this.transactionsoptional = Optional.of(transactions);
+        this.transactions = Optional.of(transactions);
     }
 
     public long getId() {
