@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,7 +23,6 @@ public class Account {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
-
     private User user;
 
     @Column(name = "name")
@@ -38,8 +38,10 @@ public class Account {
     /**
      * Transactions related to the user's account
      * */
-     @Transient
-    private Optional<List<Transaction>> transactions;
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Transaction> transactions = new ArrayList<>();
+    @Transient
+    private Optional<List<Transaction>> transactionsoptional;
     /**
      * Category templates related to the user's account
      * */
@@ -54,7 +56,7 @@ public class Account {
         account.user = user;
         account.name = name;
         account.balance = balance;
-        account.transactions = Optional.ofNullable(transactions);
+        account.transactionsoptional = Optional.ofNullable(transactions);
         account.categories = Optional.ofNullable(categories);
         account.accountCreatedDate = CommonUtils.parseToLocalDate(accountCreatedDate);
         return account;
@@ -66,7 +68,7 @@ public class Account {
         account.user = user;
         account.name = name;
         account.balance = balance;
-        account.transactions = Optional.ofNullable(transactions);
+        account.transactionsoptional = Optional.ofNullable(transactions);
         account.categories = Optional.ofNullable(categories);
         account.accountCreatedDate = LocalDate.now();
         return account;
@@ -85,7 +87,7 @@ public class Account {
         for (Transaction transaction : transactions) {
             this.balance = transaction.getTransactionType().apply(transaction.getAmount(), balance);
         }
-        this.transactions = Optional.of(transactions);
+        this.transactionsoptional = Optional.of(transactions);
     }
 
     public long getId() {
