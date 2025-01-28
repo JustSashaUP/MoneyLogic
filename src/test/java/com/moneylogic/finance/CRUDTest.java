@@ -98,5 +98,6 @@ public class CRUDTest {
         createEmptyAccountAndReadFromDB_ThanNotNull();
         createCategoryAndReadFromDB_ThanNotNull();
         createTransactionAndReadFromDB_ThanNotNull();
+        userService.deleteUserById(userService.getUserByEmail(testUser.getEmail()).getId());
     }
 }
