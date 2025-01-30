@@ -33,7 +33,7 @@ cd MoneyLogic
 mvn install
 ```
 
-###Run the project:
+### Run the project:
 ```bash
 mvn spring-boot:run
 ```
@@ -73,11 +73,10 @@ git push origin feature/your-feature-name
 
 
 ## Contact
-## Contact
 
 If you have any questions or suggestions, feel free to reach out:
 
-- **Email**: [moneylogic9@gmail.com]
-- **Telegram**: [@lalalalalove]
+- **Email**: moneylogic9@gmail.com
+- **Telegram**: @lalalalalove
 - **GitHub**: [GitHub profile](https://github.com/NaoriYchiha)
 
