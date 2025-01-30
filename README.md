@@ -77,6 +77,6 @@ git push origin feature/your-feature-name
 If you have any questions or suggestions, feel free to reach out:
 
 - **Email**: moneylogic9@gmail.com
-- **Telegram**: @lalalalalove
+- **Telegram**: https://t.me/lalalalalove
 - **GitHub**: [GitHub profile](https://github.com/NaoriYchiha)
 
