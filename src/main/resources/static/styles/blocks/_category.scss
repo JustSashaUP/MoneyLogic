@@ -1,0 +1,13 @@
+.category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 100px;
+  background-color: #2a0c3f;
+  padding: 10px;
+  border-radius: 10px;
+
+  &__percent {
+    margin-left: auto;
+  }
+}

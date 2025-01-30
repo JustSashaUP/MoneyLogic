@@ -228,6 +228,7 @@ svg * {
   --color-profile: #333;
   --container-width: 1500px;
   --container-padding-x: 15px;
+  --sidebar-width: 310px;
   --font-family-base: "Poppins", sans-serif;
   --button-height: 74px;
   --input-height: 48px;
@@ -245,6 +246,11 @@ svg * {
   max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
   margin-inline: auto;
   padding-inline: var(--container-padding-x);
+}
+.container--main-page {
+  max-width: calc(1920px - var(--sidebar-width));
+  margin-left: calc(var(--sidebar-width) + 20px);
+  margin-right: auto;
 }
 
 .visually-hidden {
@@ -342,6 +348,9 @@ h1, h2, h3, h4 {
 .button--auth {
   display: flex;
   align-items: center;
+}
+.button--active {
+  background-color: var(--color-light-purple);
 }
 
 .logo {

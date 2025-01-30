@@ -1,5 +1,5 @@
 .sidebar {
-  width: 310px;
+  width: var(--sidebar-width);
   height: 98vh;
   position: fixed;
   left: 10px;

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta charset="UTF-8"> 
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Money Logic</title>
 
@@ -10,6 +10,7 @@
   <script src="../js/script.js" defer></script>
 
 </head>
+
 <body>
   <header class="header">
     <div class="header__inner container">
@@ -26,24 +27,24 @@
         <li class="header__item" sec:authorize="isAuthenticated()" th:href="@{/profile}">
           <div class="header__profile profile profile--index">
             <a class="profile__link" th:href="@{/profile}">
-              <img
-                class="profile__image"
-                src="../images/sidebar/avatar.svg"
-                alt="Profile image"
-                width="40"
-                height="40"
-                loading="lazy"
-              >
+              <img class="profile__image" src="../images/sidebar/avatar.svg" alt="Profile image" width="40" height="40"
+                loading="lazy">
               <div class="profile__body">
-                <h2 class="profile__title" th:text="${user}" >
+                <h2 class="profile__title" th:text="${user}">
                 </h2>
                 <div class="profile__email" th:text="${email}">
                 </div>
               </div>
               <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10.75 11.3334C11.2102 11.3334 11.5833 10.9603 11.5833 10.5C11.5833 10.0398 11.2102 9.66669 10.75 9.66669C10.2897 9.66669 9.91663 10.0398 9.91663 10.5C9.91663 10.9603 10.2897 11.3334 10.75 11.3334Z" fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10.75 5.49998C11.2102 5.49998 11.5833 5.12688 11.5833 4.66665C11.5833 4.20641 11.2102 3.83331 10.75 3.83331C10.2897 3.83331 9.91663 4.20641 9.91663 4.66665C9.91663 5.12688 10.2897 5.49998 10.75 5.49998Z" fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10.75 17.1667C11.2102 17.1667 11.5833 16.7936 11.5833 16.3333C11.5833 15.8731 11.2102 15.5 10.75 15.5C10.2897 15.5 9.91663 15.8731 9.91663 16.3333C9.91663 16.7936 10.2897 17.1667 10.75 17.1667Z" fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path
+                  d="M10.75 11.3334C11.2102 11.3334 11.5833 10.9603 11.5833 10.5C11.5833 10.0398 11.2102 9.66669 10.75 9.66669C10.2897 9.66669 9.91663 10.0398 9.91663 10.5C9.91663 10.9603 10.2897 11.3334 10.75 11.3334Z"
+                  fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M10.75 5.49998C11.2102 5.49998 11.5833 5.12688 11.5833 4.66665C11.5833 4.20641 11.2102 3.83331 10.75 3.83331C10.2897 3.83331 9.91663 4.20641 9.91663 4.66665C9.91663 5.12688 10.2897 5.49998 10.75 5.49998Z"
+                  fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M10.75 17.1667C11.2102 17.1667 11.5833 16.7936 11.5833 16.3333C11.5833 15.8731 11.2102 15.5 10.75 15.5C10.2897 15.5 9.91663 15.8731 9.91663 16.3333C9.91663 16.7936 10.2897 17.1667 10.75 17.1667Z"
+                  fill="#808080" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </a>
           </div>
@@ -66,13 +67,14 @@
             </h1>
             <div class="hero__description">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta aliquam reprehenderit praesentium
-                accusantium, ipsam ad enim ipsum deserunt accusamus incidunt? Explicabo, animi laboriosam. Harum
-                voluptate, deserunt officia illo eum neque?
+                Take control of your finances with MoneyLogic. Track your income, manage expenses, and set financial
+                goals to improve your financial well-being. Start today and gain better insight into your spending
+                habits.
               </p>
             </div>
 
-            <a class="hero__button button button--auth"  data-js-registration-link sec:authorize="isAuthenticated()" th:href="@{/profile}">
+            <a class="hero__button button button--auth" data-js-registration-link sec:authorize="isAuthenticated()"
+              th:href="@{/profile}">
               Join now
             </a>
             <button class="hero__button button" type="button" data-js-registration-link sec:authorize="isAnonymous()">
@@ -240,18 +242,16 @@
           Password
         </label>
         <div class="field__password-wrapper" data-js-field-password-wrapper>
-          <input 
-            class="field__input" 
-            id="passwordRegister"
-            name="password"
-            placeholder="Enter your password" 
-            type="password" 
-            required
-            data-js-password-input
-          >
-          <svg data-js-password-hide-button width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 5.25C4.5 5.25 1.5 12 1.5 12C1.5 12 4.5 18.75 12 18.75C19.5 18.75 22.5 12 22.5 12C22.5 12 19.5 5.25 12 5.25Z" stroke="#70707B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 15.75C14.0711 15.75 15.75 14.0711 15.75 12C15.75 9.92893 14.0711 8.25 12 8.25C9.92893 8.25 8.25 9.92893 8.25 12C8.25 14.0711 9.92893 15.75 12 15.75Z" stroke="#70707B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <input class="field__input" id="passwordRegister" name="password" placeholder="Enter your password"
+            type="password" required data-js-password-input>
+          <svg data-js-password-hide-button width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 5.25C4.5 5.25 1.5 12 1.5 12C1.5 12 4.5 18.75 12 18.75C19.5 18.75 22.5 12 22.5 12C22.5 12 19.5 5.25 12 5.25Z"
+              stroke="#70707B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M12 15.75C14.0711 15.75 15.75 14.0711 15.75 12C15.75 9.92893 14.0711 8.25 12 8.25C9.92893 8.25 8.25 9.92893 8.25 12C8.25 14.0711 9.92893 15.75 12 15.75Z"
+              stroke="#70707B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
       </div>
@@ -289,18 +289,16 @@
           <a class="field__forgot-link" href="#">Forgot?</a>
         </div>
         <div class="field__password-wrapper" data-js-field-password-wrapper>
-          <input 
-            class="field__input"
-            id="password"
-            name="password"
-            placeholder="Enter your password" 
-            type="password" 
-            required
-            data-js-password-input
-          >
-          <svg data-js-password-hide-button width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 5.25C4.5 5.25 1.5 12 1.5 12C1.5 12 4.5 18.75 12 18.75C19.5 18.75 22.5 12 22.5 12C22.5 12 19.5 5.25 12 5.25Z" stroke="#70707B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 15.75C14.0711 15.75 15.75 14.0711 15.75 12C15.75 9.92893 14.0711 8.25 12 8.25C9.92893 8.25 8.25 9.92893 8.25 12C8.25 14.0711 9.92893 15.75 12 15.75Z" stroke="#70707B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <input class="field__input" id="password" name="password" placeholder="Enter your password" type="password"
+            required data-js-password-input>
+          <svg data-js-password-hide-button width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 5.25C4.5 5.25 1.5 12 1.5 12C1.5 12 4.5 18.75 12 18.75C19.5 18.75 22.5 12 22.5 12C22.5 12 19.5 5.25 12 5.25Z"
+              stroke="#70707B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M12 15.75C14.0711 15.75 15.75 14.0711 15.75 12C15.75 9.92893 14.0711 8.25 12 8.25C9.92893 8.25 8.25 9.92893 8.25 12C8.25 14.0711 9.92893 15.75 12 15.75Z"
+              stroke="#70707B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
       </div>
