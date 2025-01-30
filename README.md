@@ -42,9 +42,9 @@ mvn spring-boot:run
 ## Usage
 ### Once the project is running, you can:
 
-Track income and expenses through the web interface.
-View financial reports and track budgets.
-Set and monitor financial goals.
+- **Track income and expenses** through the web interface.
+- **View financial reports** and track budgets.
+- **Set and monitor financial goals** to stay on track.
 
 
 ## Contributing
