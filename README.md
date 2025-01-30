@@ -54,18 +54,18 @@ If you'd like to contribute to the project, please follow these steps:
 1. **Fork the repository.**
 
 2. **Create a new branch:**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
+```bash
+git checkout -b feature/your-feature-name
+```
    
 3. **Make your changes and commit them:**
 
-  ```bash
-  git commit -m "Add new feature: ..."
-  ```
+```bash
+git commit -m "Add new feature: ..."
+```
 
 4. **Push your changes to your fork:**
-  ```bash
+```bash
 git push origin feature/your-feature-name
 ```
 
