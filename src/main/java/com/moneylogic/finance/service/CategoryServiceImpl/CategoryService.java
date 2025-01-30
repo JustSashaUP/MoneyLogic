@@ -10,6 +10,8 @@ public interface CategoryService
 
     Category getCategoryById(Long id);
 
+    Category getCategoryByUserId(Long id);
+
     Category saveCategory(Category category);
 
     Category updateCategory(Long id, Category category);

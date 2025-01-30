@@ -5,13 +5,13 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
-    /*@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -31,6 +31,12 @@ public class User {
      * */
     @Column(name = "created_date")
     private LocalDate userRegistrationDate;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Account> accounts = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Category> categories = new ArrayList<>();
 
 
 
@@ -52,6 +58,10 @@ public class User {
         return user;
     }
 
+    public long getId() {
+        return id;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -64,12 +74,20 @@ public class User {
         return email;
     }
 
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
 
     public void setUsername(String username){
         this.username =username;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
     public void setPassword(String password){

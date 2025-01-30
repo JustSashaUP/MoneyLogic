@@ -15,15 +15,11 @@ public class Category {
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
     @Column(name = "name")
     private String name;
-
-/*    @Column(name = "type", nullable = false)
-    private Integer type;*/
-    public Category() {}
 
     public static Category createCategory(User user, String name) {
         Category category = new Category();

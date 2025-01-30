@@ -8,9 +8,11 @@ public interface AccountService
 {
     List<Account> getAllAccounts();
 
+    List<Account> getAllAccountsByUserId(Long id);
+
     Account getAccountById(Long id);
 
-    Account saveAccount(Account account);
+    void saveAccount(Account account);
 
     Account updateAccount(Long id, Account account);
 

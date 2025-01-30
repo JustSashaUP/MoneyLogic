@@ -22,8 +22,8 @@ public class TransactionOperationsTest {
                 null, null);
         System.out.println("Balance: " + account.getBalance());
 
-        Transaction incomeTransaction = Transaction.createTransaction(user, account, SalaryCategory,
-                BigDecimal.valueOf(100.0), TransactionType.INCOME, "description...");
+        Transaction incomeTransaction = Transaction.createTransactionWithCurrentDate(user, account, SalaryCategory,
+                TransactionType.INCOME, BigDecimal.valueOf(100.0),"description...");
 
         List<Transaction> transactions = List.of(incomeTransaction);
 
@@ -37,8 +37,8 @@ public class TransactionOperationsTest {
         Account account = Account.createAccountWithCurrentDate(user, "cash", BigDecimal.valueOf(1000.0),
                 null, null);
         System.out.println("Balance: " + account.getBalance());
-        Transaction expenseTransaction = Transaction.createTransaction(user, account, ShopingCategory,
-                BigDecimal.valueOf(100.0), TransactionType.EXPENSE, "description...");
+        Transaction expenseTransaction = Transaction.createTransactionWithCurrentDate(user, account, ShopingCategory,
+                TransactionType.EXPENSE, BigDecimal.valueOf(100.0),"description...");
 
         List<Transaction> transactions = List.of(expenseTransaction);
 
@@ -53,8 +53,8 @@ public class TransactionOperationsTest {
         Account account = Account.createAccountWithCurrentDate(user, "cash", BigDecimal.valueOf(0.0),
                 null, null);
         System.out.println("Balance: " + account.getBalance());
-        Transaction expenseTransaction = Transaction.createTransaction(user, account, ShopingCategory,
-                BigDecimal.valueOf(100.0), TransactionType.EXPENSE, "description...");
+        Transaction expenseTransaction = Transaction.createTransactionWithCurrentDate(user, account, ShopingCategory,
+                TransactionType.EXPENSE, BigDecimal.valueOf(100.0),"description...");
 
         List<Transaction> transactions = List.of(expenseTransaction);
 

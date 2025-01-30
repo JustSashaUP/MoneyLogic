@@ -1,5 +1,6 @@
 package com.moneylogic.finance.service;
 
+import com.moneylogic.finance.logging.LoggerSingleton;
 import com.moneylogic.finance.model.MyUserDetails;
 import com.moneylogic.finance.model.User;
 import com.moneylogic.finance.repository.User.UserRepository;
@@ -19,7 +20,7 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         Optional<User> user = repository.findByEmailOrUsername(login,login);
-        System.out.println("Loaded user: " + user);
+        LoggerSingleton.info(MyUserDetails.class, "Loaded user: " + user);
 
         return user.map(MyUserDetails::new)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with login: " + login));
