@@ -80,3 +80,10 @@ If you have any questions or suggestions, feel free to reach out:
 - **Telegram**: https://t.me/lalalalalove
 - **GitHub**: [GitHub profile](https://github.com/NaoriYchiha)
 
+## Contributors ✨
+
+Thanks to these amazing people:
+
+<a href="https://github.com/NaoriYchiha/MoneyLogic/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=NaoriYchiha/MoneyLogic" />
+</a>
