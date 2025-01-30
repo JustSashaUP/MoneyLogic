@@ -71,15 +71,6 @@ git push origin feature/your-feature-name
 
 5. **Create a Pull Request to the main repository.**
 
-
-## Contact
-
-If you have any questions or suggestions, feel free to reach out:
-
-- **Email**: moneylogic9@gmail.com
-- **Telegram**: https://t.me/lalalalalove
-- **GitHub**: [GitHub profile](https://github.com/NaoriYchiha)
-
 ## Languages and Tools 🚀
 <p align="left">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" width="40" height="40"/>
@@ -97,3 +88,11 @@ Thanks to these amazing people:
 <a href="https://github.com/NaoriYchiha/MoneyLogic/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=NaoriYchiha/MoneyLogic" />
 </a>
+
+## Contact
+
+If you have any questions or suggestions, feel free to reach out:
+
+- **Email**: moneylogic9@gmail.com
+- **Telegram**: https://t.me/lalalalalove
+- **GitHub**: [GitHub profile](https://github.com/NaoriYchiha)
