@@ -1,8 +1,8 @@
-# MoneyLogic
+# MoneyLogic💰
 
 MoneyLogic is a web application designed to help users conveniently monitor and manage their personal finances. With MoneyLogic, users can track their income and expenses, analyze their financial flows, and gain better control over their money. The goal of the project is to improve financial literacy and reduce unplanned spending. MoneyLogic makes financial management simpler and more accessible, turning finances into a tool for achieving dreams.
 
-## Table of Contents
+## Table of Contents🔗
 
 1. [Project Description](#project-description)
 2. [Installation and Setup](#installation-and-setup)
@@ -10,7 +10,7 @@ MoneyLogic is a web application designed to help users conveniently monitor and 
 4. [Contributing](#contributing)
 5. [Contact](#contact)
 
-## Project Description
+## Project Description🧑‍💻
 
 MoneyLogic is a web application developed to provide users with an easy way to monitor and manage their personal finances. Key features include:
 
