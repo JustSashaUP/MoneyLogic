@@ -1,11 +1,11 @@
 package com.moneylogic.finance.service.TransactionServiceImpl;
 
 import com.moneylogic.finance.model.Transaction;
+import com.moneylogic.finance.model.dto.CategoryMaxAmount;
 import com.moneylogic.finance.repository.Transaction.TransactionRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
-import javax.swing.*;
 import java.util.List;
 
 @Service
@@ -36,6 +36,16 @@ public class TransactionServiceImpl implements TransactionService
         {
             return null;
         }
+    }
+
+    @Override
+    public List<CategoryMaxAmount> getMaxIncomePerCategory(long accountId) {
+        return transactionRepository.findMaxAmountPerCategoryForIncome(accountId);
+    }
+
+    @Override
+    public List<CategoryMaxAmount> getMaxExpensePerCategory(long accountId) {
+        return transactionRepository.findMaxAmountPerCategoryForExpense(accountId);
     }
 
     @Override
