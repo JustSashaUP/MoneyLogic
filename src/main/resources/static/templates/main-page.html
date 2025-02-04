@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home page</title>
+  <title>MoneyLogic</title>
 
   <link rel="stylesheet" href="../css/styles2.css">
   <script src="../js/script-main-page.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </head>
 <body>
   <h1 class="visually-hidden">Money logic home page</h1>
   <header class="header-mp container--main-page">
-    <h2 class="header-mp__title">
-      Home page
+    <h2 class="header-mp__title" id="main-header">
     </h2>
   </header>
   <main class="content">
@@ -26,7 +26,7 @@
       <ul class="sidebar__menu sidebar__menu--center">
         <li class="sidebar__item">
           
-          <a class="sidebar__link" href="">
+          <a class="sidebar__link" onclick="loadIncomeCategories()">
             <svg width="20" height="20" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M3.3125 7.6875L11 1.70833L18.6875 7.6875V17.0833C18.6875 17.5364 18.5075 17.9709 18.1871 18.2913C17.8668 18.6117 17.4322 18.7917 16.9792 18.7917H5.02083C4.56776 18.7917 4.13323 18.6117 3.81286 18.2913C3.49248 17.9709 3.3125 17.5364 3.3125 17.0833V7.6875Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M8.4375 18.7917V10.25H13.5625V18.7917" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -43,7 +43,7 @@
           </a>
         </li>
         <li class="sidebar__item">
-          <a class="sidebar__link" href="">
+          <a class="sidebar__link" onclick="loadAccounts()">
             <svg fill="#000000" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Account Settings</title><path d="M9.6,3.32a3.86,3.86,0,1,0,3.86,3.85A3.85,3.85,0,0,0,9.6,3.32M16.35,11a.26.26,0,0,0-.25.21l-.18,1.27a4.63,4.63,0,0,0-.82.45l-1.2-.48a.3.3,0,0,0-.3.13l-1,1.66a.24.24,0,0,0,.06.31l1,.79a3.94,3.94,0,0,0,0,1l-1,.79a.23.23,0,0,0-.06.3l1,1.67c.06.13.19.13.3.13l1.2-.49a3.85,3.85,0,0,0,.82.46l.18,1.27a.24.24,0,0,0,.25.2h1.93a.24.24,0,0,0,.23-.2l.18-1.27a5,5,0,0,0,.81-.46l1.19.49c.12,0,.25,0,.32-.13l1-1.67a.23.23,0,0,0-.06-.3l-1-.79a4,4,0,0,0,0-.49,2.67,2.67,0,0,0,0-.48l1-.79a.25.25,0,0,0,.06-.31l-1-1.66c-.06-.13-.19-.13-.31-.13L19.5,13a4.07,4.07,0,0,0-.82-.45l-.18-1.27a.23.23,0,0,0-.22-.21H16.46M9.71,13C5.45,13,2,14.7,2,16.83v1.92h9.33a6.65,6.65,0,0,1,0-5.69A13.56,13.56,0,0,0,9.71,13m7.6,1.43a1.45,1.45,0,1,1,0,2.89,1.45,1.45,0,0,1,0-2.89Z"/>
             </svg>
             <p>Accounts</p>
@@ -110,116 +110,124 @@
     </section>
     <section class="home-page container--main-page">
       <div class="home-page__tabs tabs" id="tabs-home-page">
-        <div class="tabs__buttons" data-js-navigation>
-          <button class="tabs__button button button--active" data-tab="Expenses" type="button">
-            Expenses
-          </button>
-          <button class="tabs__button button" data-tab="Income" type="button">
-            Income
-          </button>
+        <div id="content">
+
         </div>
-        <ul class="tabs__total-list" data-js-total>
-          <li class="tabs__total-item tabs__total-item--active" data-js-total="Expenses">
-            <h3 class="tabs__total">Total expenses:&nbsp;<span>1000$</span></h3>
-          </li>
-          <li class="tabs__total-item" data-js-total="Income">
-            <h3 class="tabs__total">Total income:&nbsp;<span>2000$</span></h3>
-          </li>
-        </ul>
-        <ul class="tabs__list" data-js-content>
-          <li class="tabs__item tabs__item--active" data-js-content="Expenses">
-            <div class="tabs__category category">
-              <h4 class="category__title">
-                Category name 1
-              </h4>
-              <span class="category__percent">
-                30%
-              </span>
-              <span class="catefory__amount">
-                200$
-              </span>
-            </div>
-            <div class="tabs__category category">
-              <h4 class="category__title">
-                Category name 2
-              </h4>
-              <span class="category__percent">
-                30%
-              </span>
-              <span class="catefory__amount">
-                200$
-              </span>
-            </div>
-            <div class="tabs__category category">
-              <h4 class="category__title">
-                Category name 3
-              </h4>
-              <span class="category__percent">
-                30%
-              </span>
-              <span class="catefory__amount">
-                200$
-              </span>
-            </div>
-            <div class="tabs__category category">
-              <h4 class="category__title">
-                Category name 4
-              </h4>
-              <span class="category__percent">
-                30%
-              </span>
-              <span class="catefory__amount">
-                200$
-              </span>
-            </div>
-          </li>
-          <li class="tabs__item" data-js-content="Income">
-            <div class="tabs__category category">
-              <h4 class="category__title">
-                Category name 1_2
-              </h4>
-              <span class="category__percent">
-                30%
-              </span>
-              <span class="catefory__amount">
-                200$
-              </span>
-            </div>
-            <div class="tabs__category category">
-              <h4 class="category__title">
-                Category name 2_2
-              </h4>
-              <span class="category__percent">
-                30%
-              </span>
-              <span class="catefory__amount">
-                200$
-              </span>
-            </div>
-            <div class="tabs__category category">
-              <h4 class="category__title">
-                Category name 3_2
-              </h4>
-              <span class="category__percent">
-                30%
-              </span>
-              <span class="catefory__amount">
-                200$
-              </span>
-            </div>
-            <div class="tabs__category category">
-              <h4 class="category__title">
-                Category name 4_2
-              </h4>
-              <span class="category__percent">
-                30%
-              </span>
-              <span class="catefory__amount">
-                200$
-              </span>
-            </div>
-          </li>
-        </ul>
+<!--        STATIC CONTENT-->
+<!--        <div class="tabs__buttons" data-js-navigation>-->
+<!--          <form action="/profile/categories/max-expense" method="GET">-->
+<!--            <button class="tabs__button button" data-tab="Expenses" type="submit">-->
+<!--              Expenses-->
+<!--            </button>-->
+<!--          </form>-->
+<!--          <form action="/profile/categories/max-income" method="GET">-->
+<!--          <button class="tabs__button button" data-tab="Income" type="submit">-->
+<!--            Income-->
+<!--          </button>-->
+<!--          </form>-->
+<!--        </div>-->
+<!--        <ul class="tabs__total-list" data-js-total>-->
+<!--          <li class="tabs__total-item tabs__total-item&#45;&#45;active" data-js-total="Expenses">-->
+<!--            <h3 class="tabs__total">Total expenses:&nbsp;<span>1000$</span></h3>-->
+<!--          </li>-->
+<!--          <li class="tabs__total-item" data-js-total="Income">-->
+<!--            <h3 class="tabs__total">Total income:&nbsp;<span>2000$</span></h3>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--        <ul class="tabs__list" data-js-content>-->
+<!--          <li class="tabs__item tabs__item&#45;&#45;active" data-js-content="Expenses">-->
+<!--            <div class="tabs__category category">-->
+<!--              <h4 class="category__title">-->
+<!--                Category name 1-->
+<!--              </h4>-->
+<!--              <span class="category__percent">-->
+<!--                30%-->
+<!--              </span>-->
+<!--              <span class="catefory__amount">-->
+<!--                200$-->
+<!--              </span>-->
+<!--            </div>-->
+<!--            <div class="tabs__category category">-->
+<!--              <h4 class="category__title">-->
+<!--                Category name 2-->
+<!--              </h4>-->
+<!--              <span class="category__percent">-->
+<!--                30%-->
+<!--              </span>-->
+<!--              <span class="catefory__amount">-->
+<!--                200$-->
+<!--              </span>-->
+<!--            </div>-->
+<!--            <div class="tabs__category category">-->
+<!--              <h4 class="category__title">-->
+<!--                Category name 3-->
+<!--              </h4>-->
+<!--              <span class="category__percent">-->
+<!--                30%-->
+<!--              </span>-->
+<!--              <span class="catefory__amount">-->
+<!--                200$-->
+<!--              </span>-->
+<!--            </div>-->
+<!--            <div class="tabs__category category">-->
+<!--              <h4 class="category__title">-->
+<!--                Category name 4-->
+<!--              </h4>-->
+<!--              <span class="category__percent">-->
+<!--                30%-->
+<!--              </span>-->
+<!--              <span class="catefory__amount">-->
+<!--                200$-->
+<!--              </span>-->
+<!--            </div>-->
+<!--          </li>-->
+<!--          <li class="tabs__item" data-js-content="Income">-->
+<!--            <div class="tabs__category category">-->
+<!--              <h4 class="category__title">-->
+<!--                Category name 1_2-->
+<!--              </h4>-->
+<!--              <span class="category__percent">-->
+<!--                30%-->
+<!--              </span>-->
+<!--              <span class="catefory__amount">-->
+<!--                200$-->
+<!--              </span>-->
+<!--            </div>-->
+<!--            <div class="tabs__category category">-->
+<!--              <h4 class="category__title">-->
+<!--                Category name 2_2-->
+<!--              </h4>-->
+<!--              <span class="category__percent">-->
+<!--                30%-->
+<!--              </span>-->
+<!--              <span class="catefory__amount">-->
+<!--                200$-->
+<!--              </span>-->
+<!--            </div>-->
+<!--            <div class="tabs__category category">-->
+<!--              <h4 class="category__title">-->
+<!--                Category name 3_2-->
+<!--              </h4>-->
+<!--              <span class="category__percent">-->
+<!--                30%-->
+<!--              </span>-->
+<!--              <span class="catefory__amount">-->
+<!--                200$-->
+<!--              </span>-->
+<!--            </div>-->
+<!--            <div class="tabs__category category">-->
+<!--              <h4 class="category__title">-->
+<!--                Category name 4_2-->
+<!--              </h4>-->
+<!--              <span class="category__percent">-->
+<!--                30%-->
+<!--              </span>-->
+<!--              <span class="catefory__amount">-->
+<!--                200$-->
+<!--              </span>-->
+<!--            </div>-->
+<!--          </li>-->
+<!--        </ul>-->
       </div>
     </section>
   </main>
