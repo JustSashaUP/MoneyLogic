@@ -10,6 +10,8 @@ public class LoggerTest {
     @Test
     public void writingLogToConsoleAndFile() {
         LoggerSingleton.info(LoggerTest.class, "Test Console/File Output!");
+        LoggerSingleton.error(LoggerTest.class,"Test Error");
+        LoggerSingleton.warn(LoggerTest.class,"Test Warning");
         LoggerSingleton.info(LoggerTest.class, "Done!");
     }
 }
