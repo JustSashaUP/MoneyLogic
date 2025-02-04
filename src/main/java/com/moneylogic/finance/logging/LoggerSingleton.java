@@ -1,6 +1,10 @@
 package com.moneylogic.finance.logging;
 
 import org.apache.log4j.Logger;
+import org.slf4j.event.Level;
+
+import static org.apache.log4j.Level.ERROR;
+import static org.apache.log4j.Level.WARN;
 
 public class LoggerSingleton {
     private static Logger logger;
@@ -19,14 +23,14 @@ public class LoggerSingleton {
     }
 
     public static void info(Class<?> classLog, String message) {
-        getLogger(classLog).info(message);
+        getLogger(classLog).info("ℹ️" + message);
     }
 
     public static void error(Class<?> classLog, String message) {
-        getLogger(classLog).error(message);
+        getLogger(classLog).log(ERROR, "❌" + message);
     }
 
     public static void warn(Class<?> classLog, String message) {
-        getLogger(classLog).warn(message);
+        getLogger(classLog).log(WARN, "⚠️" + message);
     }
 }
