@@ -34,6 +34,7 @@ public class Transaction {
     private BigDecimal amount;
 
     @Column(name = "type")
+    @Enumerated(EnumType.STRING)
     private TransactionType transactionType;
 
     @Column(name = "description")
@@ -118,7 +119,7 @@ public class Transaction {
     @Override
     public String toString() {
         return "Transaction{" +
-                ", category=" + category +
+                ", dto=" + category +
                 ", amount=" + amount +
                 ", transactionType=" + transactionType +
                 '}';
