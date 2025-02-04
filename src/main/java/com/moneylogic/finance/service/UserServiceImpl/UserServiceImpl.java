@@ -1,13 +1,11 @@
 package com.moneylogic.finance.service.UserServiceImpl;
 
 
-import com.moneylogic.finance.model.Category;
 import com.moneylogic.finance.model.User;
 import com.moneylogic.finance.repository.User.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

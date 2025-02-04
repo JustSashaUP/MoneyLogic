@@ -2,13 +2,12 @@ package com.moneylogic.finance.security;
 
 
 import com.moneylogic.finance.service.CustomOAuth2UserService;
-import com.moneylogic.finance.service.MyUserDetailsService;
+import com.moneylogic.finance.service.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -26,7 +25,7 @@ public class SecurityConfig {
     private final CustomOAuth2UserService customOAuth2UserService;
     @Bean
     public UserDetailsService userDetailsService() {
-        return new MyUserDetailsService();
+        return new CustomUserDetailsService();
     }
 
     public SecurityConfig(@Lazy CustomOAuth2UserService customOAuth2UserService) {

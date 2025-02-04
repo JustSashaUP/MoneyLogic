@@ -1,7 +1,7 @@
 package com.moneylogic.finance.controller;
 
 import com.moneylogic.finance.logging.LoggerSingleton;
-import com.moneylogic.finance.model.MyUserDetails;
+import com.moneylogic.finance.model.CustomUserDetails;
 import com.moneylogic.finance.model.User;
 import com.moneylogic.finance.service.UserServiceImpl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ public class AuthController {
                 UserDetails userDetails = (UserDetails) authentication.getPrincipal();
                 String username = userDetails.getUsername();
                 // Предположим, что вы можете получить email через метод getEmail()
-                String email = ((MyUserDetails) userDetails).getEmail(); // если у вас кастомная реализация UserDetails
+                String email = ((CustomUserDetails) userDetails).getEmail(); // если у вас кастомная реализация UserDetails
                 model.addAttribute("user", username);
                 model.addAttribute("email", email);
             }
@@ -83,7 +83,7 @@ public class AuthController {
                 UserDetails userDetails = (UserDetails) authentication.getPrincipal();
                 String username = userDetails.getUsername();
                 // Предположим, что вы можете получить email через метод getEmail()
-                String email = ((MyUserDetails) userDetails).getEmail(); // если у вас кастомная реализация UserDetails
+                String email = ((CustomUserDetails) userDetails).getEmail(); // если у вас кастомная реализация UserDetails
                 model.addAttribute("user", username);
                 model.addAttribute("email", email);
             }
