@@ -1,20 +1,17 @@
 package com.moneylogic.finance;
 
 import com.moneylogic.finance.model.*;
+import com.moneylogic.finance.model.Category;
 import com.moneylogic.finance.service.AccountServiceImpl.AccountService;
 import com.moneylogic.finance.service.CategoryServiceImpl.CategoryService;
 import com.moneylogic.finance.service.TransactionServiceImpl.TransactionService;
 import com.moneylogic.finance.service.UserServiceImpl.UserService;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -62,6 +59,20 @@ public class CRUDTest {
         assertNotNull(existAccount);
     }
 
+    private void updateAccountAndReadFromDB_ThanNotEquals() {
+        long id = userService.getUserByEmail(testUser.getEmail()).getId();
+        Account account = accountService.getAllAccountsByUserId(id).getFirst();
+        String oldName = account.getName();
+        account.setName(account.getName() + " Updated");
+        try {
+            accountService.updateAccount(id, account);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        account = accountService.getAllAccountsByUserId(id).getFirst();
+        assertNotEquals(account.getName(), oldName);
+    }
+
     private void createCategoryAndReadFromDB_ThanNotNull() {
         Category category = Category.createCategory(
                 userService.getUserByEmail(testUser.getEmail()),
@@ -80,7 +91,7 @@ public class CRUDTest {
         User user = userService.getUserByEmail(testUser.getEmail());
         Account account = accountService.getAllAccountsByUserId(user.getId())
                 .stream()
-                .filter(x -> x.getName().equals("testAccount")).findFirst().orElse(null);
+                .filter(x -> x.getName().equals("testAccount Updated")).findFirst().orElse(null);
         Transaction transaction = Transaction.createTransactionWithoutCategory(user, account, BigDecimal.valueOf(100.0),
                 TransactionType.INCOME, String.valueOf(LocalDate.now()), "test Transaction");
         Transaction existTransaction = null;
@@ -96,6 +107,7 @@ public class CRUDTest {
     public void testCRUDMethods() {
         createUserAndReadFromDB_ThanNotNull();
         createEmptyAccountAndReadFromDB_ThanNotNull();
+        updateAccountAndReadFromDB_ThanNotEquals();
         createCategoryAndReadFromDB_ThanNotNull();
         createTransactionAndReadFromDB_ThanNotNull();
         userService.deleteUserById(userService.getUserByEmail(testUser.getEmail()).getId());
