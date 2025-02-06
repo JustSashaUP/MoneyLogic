@@ -23,6 +23,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         Optional<User> user = repository.findByEmailOrUsername(login,login);
         LoggerSingleton.info(CustomUserDetails.class, "Loaded user: " + user);
+        LoggerSingleton.info(CustomUserDetails.class, "User's Accounts is available: " + user.get().getAccounts().size());
 
         return user.map(CustomUserDetails::new)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with login: " + login));
