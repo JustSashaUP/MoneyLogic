@@ -50,7 +50,6 @@ public class AccountController {
             }
 
             user.setAccounts(accounts);
-            LoggerSingleton.info(AccountController.class, "User's accounts count = " + accounts.size());
             return ResponseEntity.ok().body(accounts);
         } catch (Exception e) {
             LoggerSingleton.error(AccountController.class, e.getMessage());
@@ -63,6 +62,11 @@ public class AccountController {
                                            @PathVariable Long accountId) {
         if (userDetails == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+
+        if (userDetails.getActiveAccountId().equals(accountId)) {
+            LoggerSingleton.warn(AccountController.class, "The account is already active. Please choose another one.");
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
 
         if (!userDetails.getAccountIds().contains(accountId)) {

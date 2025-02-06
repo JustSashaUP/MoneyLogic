@@ -22,7 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         Optional<User> user = repository.findByEmailOrUsername(login,login);
-        LoggerSingleton.info(CustomUserDetails.class, "Loaded user: " + user);
+        LoggerSingleton.info(CustomUserDetails.class, "Loaded user: " + user.get().getEmail());
         LoggerSingleton.info(CustomUserDetails.class, "User's Accounts is available: " + user.get().getAccounts().size());
 
         return user.map(CustomUserDetails::new)
